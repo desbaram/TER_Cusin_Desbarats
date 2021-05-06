@@ -11,7 +11,6 @@ class QuestionFr extends StatefulWidget {
 
 class QuestionFrState extends State {
   int heure = DateTime.now().hour;
-  bool bouton = false, bouton2 = false;
   var file, bytes, excel, ligne;
   int i = (DateTime.now().weekday) - 1;
 

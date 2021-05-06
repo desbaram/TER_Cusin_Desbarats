@@ -5,11 +5,11 @@ import 'main.dart';
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
-class AnswerP_Jp extends StatefulWidget {
-  AnswerP_JpState createState() => AnswerP_JpState();
+class AnswerPJp extends StatefulWidget {
+  AnswerPJpState createState() => AnswerPJpState();
 }
 
-class AnswerP_JpState extends State {
+class AnswerPJpState extends State {
   final _formKey = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phP = [
@@ -85,11 +85,11 @@ class AnswerP_JpState extends State {
   }
 }
 
-class AnswerN_Jp extends StatefulWidget {
-  AnswerN_JpState createState() => AnswerN_JpState();
+class AnswerNJp extends StatefulWidget {
+  AnswerNJpState createState() => AnswerNJpState();
 }
 
-class AnswerN_JpState extends State {
+class AnswerNJpState extends State {
   final _formKey = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
@@ -165,11 +165,11 @@ class AnswerN_JpState extends State {
   }
 }
 
-class NoAnswer_Jp extends StatefulWidget {
-  NoAnswer_JpState createState() => NoAnswer_JpState();
+class NoAnswerJp extends StatefulWidget {
+  NoAnswerJpState createState() => NoAnswerJpState();
 }
 
-class NoAnswer_JpState extends State {
+class NoAnswerJpState extends State {
   final _formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {

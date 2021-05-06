@@ -13,7 +13,6 @@ class HomeFr extends StatefulWidget {
 
 class HomeFrState extends State {
   int heure = DateTime.now().hour;
-  bool bouton = false, bouton2 = false;
   var file, bytes, excel, ligne;
   int i = (DateTime.now().weekday) - 1;
 
@@ -26,8 +25,6 @@ class HomeFrState extends State {
   ];
 
   void initState() {
-    bouton = false;
-    bouton2 = false;
     heure = DateTime.now().hour;
 
     file = "/storage/emulated/0/Download/Question.xlsx";
