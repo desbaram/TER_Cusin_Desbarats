@@ -23,6 +23,7 @@ class AnswerPEnState extends State {
   ];
   Widget build(BuildContext context) {
     return ScaffoldEn(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -37,7 +38,8 @@ class AnswerPEnState extends State {
               SizedBox(
                 height: 80,
               ),
-              Text(phP[i],
+              Text(
+                  "If you wish, write a few words about yesterday's day in the journal.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.blue,
@@ -103,6 +105,7 @@ class AnswerNEnState extends State {
   ];
   Widget build(BuildContext context) {
     return ScaffoldEn(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -117,7 +120,8 @@ class AnswerNEnState extends State {
               SizedBox(
                 height: 80,
               ),
-              Text(phN[i],
+              Text(
+                  "If you wish, write a few words about yesterday's day in the journal.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.blue,
@@ -174,6 +178,7 @@ class NoAnswerEnState extends State {
 
   Widget build(BuildContext context) {
     return ScaffoldEn(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

@@ -12,6 +12,7 @@ class AccountFr extends StatefulWidget {
 class AccountFrState extends State {
   Widget build(BuildContext context) {
     return ScaffoldFr(
+      title: "Compte",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -34,6 +35,7 @@ class AccountEn extends StatefulWidget {
 class AccountEnState extends State {
   Widget build(BuildContext context) {
     return ScaffoldEn(
+      title: "Account",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -56,6 +58,7 @@ class AccountJp extends StatefulWidget {
 class AccountJpState extends State {
   Widget build(BuildContext context) {
     return ScaffoldJp(
+      title: "プロフィール",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

@@ -104,14 +104,15 @@ class DrawerFr extends StatelessWidget {
 
 class ScaffoldFr extends StatelessWidget {
   final Widget body;
+  final String title;
 
-  ScaffoldFr({required this.body});
+  ScaffoldFr({required this.body, required this.title});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
         title: Text(
-          "Mikou-chan",
+          title,
         ),
       ),
       body: body,
@@ -119,18 +120,6 @@ class ScaffoldFr extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         color: Colors.blue,
         child: Row(children: [
-          IconButton(
-              icon: Image.network(
-                "https://rotary-club-thann-cernay.org/wp-content/uploads/2016/01/flag-fr.png",
-                width: 50.0,
-                height: 50.0,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/',
-                );
-              }),
           IconButton(
               icon: Image.network(
                 "https://d1z1c2g2uiorau.cloudfront.net/128-large_default/drapeau-royaume-uni-5075-cm.jpg",
@@ -157,7 +146,7 @@ class ScaffoldFr extends StatelessWidget {
               }),
           SizedBox(
             height: 0,
-            width: 140,
+            width: 180,
           ),
           Text(
             date,
@@ -227,14 +216,15 @@ class DrawerEn extends StatelessWidget {
 
 class ScaffoldEn extends StatelessWidget {
   final Widget body;
+  final String title;
 
-  ScaffoldEn({required this.body});
+  ScaffoldEn({required this.body, required this.title});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
         title: Text(
-          "Mikou-chan",
+          title,
         ),
       ),
       body: body,
@@ -256,18 +246,6 @@ class ScaffoldEn extends StatelessWidget {
               }),
           IconButton(
               icon: Image.network(
-                "https://d1z1c2g2uiorau.cloudfront.net/128-large_default/drapeau-royaume-uni-5075-cm.jpg",
-                width: 50.0,
-                height: 50.0,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/homeEn',
-                );
-              }),
-          IconButton(
-              icon: Image.network(
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/langfr-225px-Flag_of_Japan.svg.png",
                 width: 50.0,
                 height: 50.0,
@@ -280,7 +258,7 @@ class ScaffoldEn extends StatelessWidget {
               }),
           SizedBox(
             height: 0,
-            width: 140,
+            width: 180,
           ),
           Text(
             date,
@@ -350,14 +328,15 @@ class DrawerJp extends StatelessWidget {
 
 class ScaffoldJp extends StatelessWidget {
   final Widget body;
+  final String title;
 
-  ScaffoldJp({required this.body});
+  ScaffoldJp({required this.body, required this.title});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
         title: Text(
-          "Mikou-chan",
+          title,
         ),
       ),
       body: body,
@@ -389,21 +368,9 @@ class ScaffoldJp extends StatelessWidget {
                   '/homeEn',
                 );
               }),
-          IconButton(
-              icon: Image.network(
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/langfr-225px-Flag_of_Japan.svg.png",
-                width: 50.0,
-                height: 50.0,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/homeJp',
-                );
-              }),
           SizedBox(
             height: 0,
-            width: 140,
+            width: 180,
           ),
           Text(
             date,

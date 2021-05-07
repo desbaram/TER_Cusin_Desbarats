@@ -23,6 +23,7 @@ class AnswerPJpState extends State {
   ];
   Widget build(BuildContext context) {
     return ScaffoldJp(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -37,7 +38,7 @@ class AnswerPJpState extends State {
               SizedBox(
                 height: 80,
               ),
-              Text(phP[i],
+              Text("よかったら、新聞に昨日のことを少し書いてみてください。",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.blue,
@@ -103,6 +104,7 @@ class AnswerNJpState extends State {
   ];
   Widget build(BuildContext context) {
     return ScaffoldJp(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -117,7 +119,7 @@ class AnswerNJpState extends State {
               SizedBox(
                 height: 80,
               ),
-              Text(phN[i],
+              Text("よかったら、新聞に昨日のことを少し書いてみてください。",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.blue,
@@ -174,6 +176,7 @@ class NoAnswerJpState extends State {
 
   Widget build(BuildContext context) {
     return ScaffoldJp(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

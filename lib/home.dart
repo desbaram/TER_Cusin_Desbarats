@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
-import 'package:excel/excel.dart';
-import 'dart:io';
 import 'main.dart';
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
@@ -13,7 +11,6 @@ class HomeFr extends StatefulWidget {
 
 class HomeFrState extends State {
   int heure = DateTime.now().hour;
-  var file, bytes, excel, ligne;
   int i = (DateTime.now().weekday) - 1;
 
   List<String> phrase = [
@@ -25,20 +22,12 @@ class HomeFrState extends State {
   ];
 
   void initState() {
-    heure = DateTime.now().hour;
-
-    file = "/storage/emulated/0/Download/Question.xlsx";
-    //"C:/Users/Administrateur/Documents/TER/Question.xlsx"
-    bytes = File(file).readAsBytesSync();
-    excel = Excel.decodeBytes(bytes);
-    Sheet sheetObject = excel['Question'];
-    ligne = sheetObject.row(4);
-
     super.initState();
   }
 
   Widget build(BuildContext context) {
     return ScaffoldFr(
+      title: "Page d'accueil",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -79,7 +68,7 @@ class HomeFrState extends State {
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
                 ),
-              )
+              ),
           ]),
         ),
       ),
@@ -93,35 +82,23 @@ class HomeEn extends StatefulWidget {
 
 class HomeEnState extends State {
   int heure = DateTime.now().hour;
-  bool bouton = false, bouton2 = false;
-  var file, bytes, excel, ligne;
   int i = (DateTime.now().weekday) - 1;
 
   List<String> phrase = [
-    "Bonjour ! J'espère que vous allez bien aujourd'hui.",
-    "Bonjour, comment allez-vous ajourd'hui ?",
-    "Bonjour. J'espère que vous êtes en forme.",
-    "Bonjour. Est-ce que vous allez bien depuis hier ?",
-    "Bonjour. Je viens prendre de vous nouvelles."
+    "Hello ! I hope you are well today.",
+    "Hello, how are you today ?",
+    "Hello. I hope you are well.",
+    "Hello. Have you been well since yesterday ?",
+    "Hello. I've come to check on you."
   ];
 
   void initState() {
-    bouton = false;
-    bouton2 = false;
-    heure = DateTime.now().hour;
-
-    file = "/storage/emulated/0/Download/Question.xlsx";
-    //"C:/Users/Administrateur/Documents/TER/Question.xlsx"
-    bytes = File(file).readAsBytesSync();
-    excel = Excel.decodeBytes(bytes);
-    Sheet sheetObject = excel['Question'];
-    ligne = sheetObject.row(4);
-
     super.initState();
   }
 
   Widget build(BuildContext context) {
     return ScaffoldEn(
+      title: "Home",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -176,35 +153,23 @@ class HomeJp extends StatefulWidget {
 
 class HomeJpState extends State {
   int heure = DateTime.now().hour;
-  bool bouton = false, bouton2 = false;
-  var file, bytes, excel, ligne;
   int i = (DateTime.now().weekday) - 1;
 
   List<String> phrase = [
-    "Bonjour ! J'espère que vous allez bien aujourd'hui.",
-    "Bonjour, comment allez-vous ajourd'hui ?",
-    "Bonjour. J'espère que vous êtes en forme.",
-    "Bonjour. Est-ce que vous allez bien depuis hier ?",
-    "Bonjour. Je viens prendre de vous nouvelles."
+    "こんにちは。 今日も元気に過ごしてくださいね.",
+    "こんにちは、今日はお元気ですか ?",
+    "こんにちは。 お元気ですか ?",
+    "こんにちは。 昨日から元気にしていますか ?",
+    "こんにちは。 あなたの様子を見に来ました."
   ];
 
   void initState() {
-    bouton = false;
-    bouton2 = false;
-    heure = DateTime.now().hour;
-
-    file = "/storage/emulated/0/Download/Question.xlsx";
-    //"C:/Users/Administrateur/Documents/TER/Question.xlsx"
-    bytes = File(file).readAsBytesSync();
-    excel = Excel.decodeBytes(bytes);
-    Sheet sheetObject = excel['Question'];
-    ligne = sheetObject.row(4);
-
     super.initState();
   }
 
   Widget build(BuildContext context) {
     return ScaffoldJp(
+      title: "ホームページ",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

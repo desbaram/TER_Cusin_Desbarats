@@ -23,6 +23,7 @@ class AnswerPFrState extends State {
   ];
   Widget build(BuildContext context) {
     return ScaffoldFr(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -103,6 +104,7 @@ class AnswerNFrState extends State {
   ];
   Widget build(BuildContext context) {
     return ScaffoldFr(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -174,6 +176,7 @@ class NoAnswerFrState extends State {
 
   Widget build(BuildContext context) {
     return ScaffoldFr(
+      title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

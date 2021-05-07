@@ -12,6 +12,7 @@ class SettingsFr extends StatefulWidget {
 class SettingsFrState extends State {
   Widget build(BuildContext context) {
     return ScaffoldFr(
+      title: "Paramètres",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -20,7 +21,22 @@ class SettingsFrState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          child: ElevatedButton(
+            child: Text("Langues",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.grey,
+                )),
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                '/questionFr',
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white,
+            ),
+          ),
         ),
       ),
     );
@@ -34,6 +50,7 @@ class SettingsEn extends StatefulWidget {
 class SettingsEnState extends State {
   Widget build(BuildContext context) {
     return ScaffoldEn(
+      title: "Settings",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -56,6 +73,7 @@ class SettingsJp extends StatefulWidget {
 class SettingsJpState extends State {
   Widget build(BuildContext context) {
     return ScaffoldJp(
+      title: "'パラメータ'",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
