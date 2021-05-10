@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Mon compagnon virtuel',
       initialRoute: '/',
       routes: {
+        //routes pour naviguer entre les pages
         '/': (context) => HomeFr(),
         '/questionFr': (context) => QuestionFr(),
         '/answerP_Fr': (context) => AnswerPFr(),
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/noAnswer_Fr': (context) => NoAnswerFr(),
         '/accountFr': (context) => AccountFr(),
         '/settingsFr': (context) => SettingsFr(),
+        '/choixFr': (context) => ChoixFr(),
         '/homeEn': (context) => HomeEn(),
         '/questionEn': (context) => QuestionEn(),
         '/answerP_En': (context) => AnswerPEn(),
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/noAnswer_En': (context) => NoAnswerEn(),
         '/accountEn': (context) => AccountEn(),
         '/settingsEn': (context) => SettingsEn(),
+        '/choixEn': (context) => ChoixEn(),
         '/homeJp': (context) => HomeJp(),
         '/questionJp': (context) => QuestionJp(),
         '/answerP_Jp': (context) => AnswerPJp(),
@@ -40,21 +43,20 @@ class MyApp extends StatelessWidget {
         '/noAnswer_Jp': (context) => NoAnswerJp(),
         '/accountJp': (context) => AccountJp(),
         '/settingsJp': (context) => SettingsJp(),
+        '/choixJp': (context) => ChoixJp(),
       },
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
     );
   }
 }
 
 class DrawerFr extends StatelessWidget {
+  //classe pour le menu français
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         children: <Widget>[
           DrawerHeader(
+            //haut du menu
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
@@ -62,38 +64,41 @@ class DrawerFr extends StatelessWidget {
               'Menu',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 30,
               ),
-            ),
+            ), //nom en haut du menu
           ),
           ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text("Page d'accueil"),
+            //première option du menu
+            leading: Icon(Icons.home), //son icône
+            title: Text("Page d'accueil"), //son nom
             onTap: () {
               Navigator.pushNamed(
                 context,
                 '/',
-              );
+              ); //quand on appuie dessus, on est redirigé vers la route suivante
             },
           ),
           ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Profil'),
+            //deuxième option du menu
+            leading: Icon(Icons.account_circle), //son icône
+            title: Text('Profil'), //son nom
             onTap: () {
               Navigator.pushNamed(
                 context,
                 '/accountFr',
-              );
+              ); //quand on appuie dessus, on est redirigé vers la route suivante
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Paramètres'),
+            //troisième option du menu
+            leading: Icon(Icons.settings), //son icône
+            title: Text('Paramètres'), //son nom
             onTap: () {
               Navigator.pushNamed(
                 context,
                 '/settingsFr',
-              );
+              ); //quand on appuie dessus, on est redirigé vers la route suivante
             },
           ),
         ],
@@ -103,8 +108,9 @@ class DrawerFr extends StatelessWidget {
 }
 
 class ScaffoldFr extends StatelessWidget {
-  final Widget body;
-  final String title;
+  //classe pour l'apparance des pages en français
+  final Widget body; //le body est défini dans les classes de chaque page
+  final String title; //le nom est défini dans les classes de chaque page
 
   ScaffoldFr({required this.body, required this.title});
   Widget build(BuildContext context) {
@@ -114,13 +120,15 @@ class ScaffoldFr extends StatelessWidget {
         title: Text(
           title,
         ),
-      ),
+      ), //barre d'outils du haut avec le titre
       body: body,
-      drawer: DrawerFr(),
+      drawer: DrawerFr(), //le menu qui appelle la classe défini ci-dessus
       bottomNavigationBar: BottomAppBar(
+        //barre d'outils du bas
         color: Colors.blue,
         child: Row(children: [
           IconButton(
+              //un bouton icône représenté par l'image appelé ci-dessous
               icon: Image.network(
                 "https://d1z1c2g2uiorau.cloudfront.net/128-large_default/drapeau-royaume-uni-5075-cm.jpg",
                 width: 50.0,
@@ -130,9 +138,10 @@ class ScaffoldFr extends StatelessWidget {
                 Navigator.pushNamed(
                   context,
                   '/homeEn',
-                );
+                ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeEn
               }),
           IconButton(
+              //un bouton icône représenté par l'image appelé ci-dessous
               icon: Image.network(
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/langfr-225px-Flag_of_Japan.svg.png",
                 width: 50.0,
@@ -142,7 +151,7 @@ class ScaffoldFr extends StatelessWidget {
                 Navigator.pushNamed(
                   context,
                   '/homeJp',
-                );
+                ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeJp
               }),
           SizedBox(
             height: 0,
@@ -154,7 +163,7 @@ class ScaffoldFr extends StatelessWidget {
               color: Colors.white,
               fontSize: 20.0,
             ),
-          ),
+          ), //affiche la date d'aujourd'hui
         ]),
       ),
     );
@@ -162,6 +171,7 @@ class ScaffoldFr extends StatelessWidget {
 }
 
 class DrawerEn extends StatelessWidget {
+  //classe du menu en anglais
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
@@ -215,6 +225,7 @@ class DrawerEn extends StatelessWidget {
 }
 
 class ScaffoldEn extends StatelessWidget {
+  //classe pour l'apparance des pages en anglais
   final Widget body;
   final String title;
 
@@ -274,6 +285,7 @@ class ScaffoldEn extends StatelessWidget {
 }
 
 class DrawerJp extends StatelessWidget {
+  //classe pour le menu japonais
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
@@ -327,6 +339,7 @@ class DrawerJp extends StatelessWidget {
 }
 
 class ScaffoldJp extends StatelessWidget {
+  //classe pour l'apparance des pages en japonais
   final Widget body;
   final String title;
 

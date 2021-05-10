@@ -1,59 +1,50 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:date_format/date_format.dart';
 import 'main.dart';
 
-final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
-
 class HomeFr extends StatefulWidget {
+  //classe de la page d'accueil en français
   HomeFrState createState() => HomeFrState();
 }
 
 class HomeFrState extends State {
-  int heure = DateTime.now().hour;
+  int heure = DateTime.now().hour; //heure actuelle
   int i = (DateTime.now().weekday) - 1;
-
+  //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
   List<String> phrase = [
     "Bonjour ! J'espère que vous allez bien aujourd'hui.",
     "Bonjour, comment allez-vous ajourd'hui ?",
     "Bonjour. J'espère que vous êtes en forme.",
     "Bonjour. Est-ce que vous allez bien depuis hier ?",
     "Bonjour. Je viens prendre de vous nouvelles."
-  ];
-
-  void initState() {
-    super.initState();
-  }
+  ]; //liste des phrases de bienvenue
 
   Widget build(BuildContext context) {
     return ScaffoldFr(
-      title: "Page d'accueil",
+      title: "Page d'accueil", //nom inscrit sur l'appBar
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
               image: NetworkImage(
                   "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              fit: BoxFit.cover), //image de fond de la page
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          //marge pour que les éléments ne soient pas collés au bord de page
           child: Column(children: [
+            Text(phrase[i],
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30.0,
+                )), //la phrase i de la liste, i étant un entier défini plus haut
             SizedBox(
               height: 80,
             ),
-            Text(
-              phrase[i],
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 30.0,
-              ),
-            ),
-            SizedBox(
-              height: 80,
-            ),
-            if (heure > 11)
+            if (heure > 11) //heure à laquelle apparait la question donc 12h
               ElevatedButton(
+                //bouton qui permet d'accéder à la question quotidienne
                 child: Text("Accéder à la question",
                     style: TextStyle(
                       fontSize: 20,
@@ -63,7 +54,7 @@ class HomeFrState extends State {
                   Navigator.pushNamed(
                     context,
                     '/questionFr',
-                  );
+                  ); //renvoie à la question lorsqu'on appuie
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
@@ -77,6 +68,7 @@ class HomeFrState extends State {
 }
 
 class HomeEn extends StatefulWidget {
+  //classe de la page d'accueil en anglais
   HomeEnState createState() => HomeEnState();
 }
 
@@ -107,11 +99,8 @@ class HomeEnState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(children: [
-            SizedBox(
-              height: 80,
-            ),
             Text(
               phrase[i],
               textAlign: TextAlign.center,
@@ -148,6 +137,7 @@ class HomeEnState extends State {
 }
 
 class HomeJp extends StatefulWidget {
+  //classe de la page d'accueil en japonais
   HomeJpState createState() => HomeJpState();
 }
 
@@ -178,11 +168,8 @@ class HomeJpState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(children: [
-            SizedBox(
-              height: 80,
-            ),
             Text(
               phrase[i],
               textAlign: TextAlign.center,

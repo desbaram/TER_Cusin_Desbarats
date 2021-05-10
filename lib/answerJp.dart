@@ -10,7 +10,7 @@ class AnswerPJp extends StatefulWidget {
 }
 
 class AnswerPJpState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phP = [
     "Bonne nouvelle ! Si vous voulez parler de votre sommeil ou autre, n'hésitez pas à l'écrire.",
@@ -32,12 +32,9 @@ class AnswerPJpState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 80,
-              ),
               Text("よかったら、新聞に昨日のことを少し書いてみてください。",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -48,7 +45,7 @@ class AnswerPJpState extends State {
                 height: 80,
               ),
               Form(
-                key: _formKey,
+                key: form,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -70,8 +67,8 @@ class AnswerPJpState extends State {
                     ElevatedButton(
                       child: Text('参加する'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Process data.
+                        if (form.currentState!.validate()) {
+                          //récupération sans la base de données
                         }
                       },
                     ),
@@ -91,7 +88,7 @@ class AnswerNJp extends StatefulWidget {
 }
 
 class AnswerNJpState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
     "Quelque chose vous préoccupe ? N'hésitez pas à le partager, même si c'est quelque chose d'anodin.",
@@ -113,12 +110,9 @@ class AnswerNJpState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 80,
-              ),
               Text("よかったら、新聞に昨日のことを少し書いてみてください。",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -129,7 +123,7 @@ class AnswerNJpState extends State {
                 height: 80,
               ),
               Form(
-                key: _formKey,
+                key: form,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -151,8 +145,8 @@ class AnswerNJpState extends State {
                     ElevatedButton(
                       child: Text('参加する'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Process data.
+                        if (form.currentState!.validate()) {
+                          //récupération dans la base de données
                         }
                       },
                     ),
@@ -172,7 +166,7 @@ class NoAnswerJp extends StatefulWidget {
 }
 
 class NoAnswerJpState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
     return ScaffoldJp(
@@ -185,12 +179,9 @@ class NoAnswerJpState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 80,
-              ),
               Text("よかったら、新聞に昨日のことを少し書いてみてください。",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -201,7 +192,7 @@ class NoAnswerJpState extends State {
                 height: 80,
               ),
               Form(
-                key: _formKey,
+                key: form,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -223,8 +214,8 @@ class NoAnswerJpState extends State {
                     ElevatedButton(
                       child: Text('参加する'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Process data.
+                        if (form.currentState!.validate()) {
+                          //récupération dans la base de données
                         }
                       },
                     ),

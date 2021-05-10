@@ -1,17 +1,16 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:date_format/date_format.dart';
 import 'main.dart';
 
-final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
-
 class AnswerPFr extends StatefulWidget {
+  //classe lorsque l'utilisateur choisit la réponse positive
   AnswerPFrState createState() => AnswerPFrState();
 }
 
 class AnswerPFrState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
+  //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
   List<String> phP = [
     "Bonne nouvelle ! Si vous voulez parler de votre sommeil ou autre, n'hésitez pas à l'écrire.",
     "Prenez bien soin de vous ! Si quelque chose vous préoccupe, vous pouvez l'inscrire ici.",
@@ -20,66 +19,64 @@ class AnswerPFrState extends State {
     "Tant mieux. N'hésiter pas à écrire quelques mots si vous le souhaitez.",
     "Souhaitez-vous raconter votre sortie/discussion ?",
     "C'est bien. Si quelque chose vous préoccupe, n'hésitez pas à le partager."
-  ];
+  ]; //phrase de réponse à la réponse de l'utiliseur
   Widget build(BuildContext context) {
     return ScaffoldFr(
-      title: "Mikou-chan",
+      title: "Mikou-chan", //nom de la page sur l'appBar
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
               image: NetworkImage(
                   "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              fit: BoxFit.cover), //image de fond de la page
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 80,
-              ),
-              Text(phP[i],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                  )),
-              SizedBox(
-                height: 80,
-              ),
-              Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Taper ici pour entrer le texte',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Entrer du texte avant d'envoyer";
-                        }
-                        return null;
-                      },
+          margin: const EdgeInsets.symmetric(
+              vertical: 80.0,
+              horizontal:
+                  10.0), //marge pour que les éléments ne soient pas sur les bords de la page
+          child: Column(children: [
+            Text(phP[i],
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30.0,
+                )), //la phrase de réponse i de la liste, i étant un entier défini plus haut
+            SizedBox(
+              height: 80,
+            ),
+            Form(
+              key: form,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Taper ici pour entrer le texte',
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Entrer du texte avant d'envoyer";
+                      }
+                      return null;
+                    },
+                  ), //zone de texte où l'utilisateur peut écrire ce qu'il veut sur sa journée par exemple
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton(
+                      //bouton pour envoyer le texte écrit dans la base de données
                       child: Text('Envoyer'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Process data.
+                        if (form.currentState!.validate()) {
+                          //récupération réponse
                         }
-                      },
-                    ),
-                  ],
-                ),
+                      }),
+                ],
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );
@@ -87,11 +84,12 @@ class AnswerPFrState extends State {
 }
 
 class AnswerNFr extends StatefulWidget {
+  //classe lorsque l'utilisateur choisit la réponse négative
   AnswerNFrState createState() => AnswerNFrState();
 }
 
 class AnswerNFrState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
     "Quelque chose vous préoccupe ? N'hésitez pas à le partager, même si c'est quelque chose d'anodin.",
@@ -113,54 +111,48 @@ class AnswerNFrState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 80,
-              ),
-              Text(phN[i],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                  )),
-              SizedBox(
-                height: 80,
-              ),
-              Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Taper ici pour entrer le texte',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Entrer du texte avant d'envoyer";
-                        }
-                        return null;
-                      },
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          child: Column(children: [
+            Text(phN[i],
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30.0,
+                )),
+            SizedBox(
+              height: 80,
+            ),
+            Form(
+              key: form,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Taper ici pour entrer le texte',
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Entrer du texte avant d'envoyer";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton(
                       child: Text('Envoyer'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
+                        if (form.currentState!.validate()) {
                           // Process data.
                         }
-                      },
-                    ),
-                  ],
-                ),
+                      }),
+                ],
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );
@@ -168,11 +160,12 @@ class AnswerNFrState extends State {
 }
 
 class NoAnswerFr extends StatefulWidget {
+  //classe lorsque l'utilisateur choisit de ne pas répondre à la question
   NoAnswerFrState createState() => NoAnswerFrState();
 }
 
 class NoAnswerFrState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
     return ScaffoldFr(
@@ -185,55 +178,49 @@ class NoAnswerFrState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 80,
-              ),
-              Text(
-                  "Si vous le souhaitez, inscrivez quelques mots sur la journée d'hier dans le journal.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                  )),
-              SizedBox(
-                height: 80,
-              ),
-              Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Taper ici pour entrer le texte',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Entrer du texte avant d'envoyer";
-                        }
-                        return null;
-                      },
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          child: Column(children: [
+            Text(
+                "Si vous le souhaitez, inscrivez quelques mots sur la journée d'hier dans le journal.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30.0,
+                )),
+            SizedBox(
+              height: 80,
+            ),
+            Form(
+              key: form,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Taper ici pour entrer le texte',
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Entrer du texte avant d'envoyer";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton(
                       child: Text('Envoyer'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
+                        if (form.currentState!.validate()) {
                           // Process data.
                         }
-                      },
-                    ),
-                  ],
-                ),
+                      }),
+                ],
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );

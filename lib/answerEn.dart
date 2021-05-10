@@ -10,7 +10,7 @@ class AnswerPEn extends StatefulWidget {
 }
 
 class AnswerPEnState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phP = [
     "Bonne nouvelle ! Si vous voulez parler de votre sommeil ou autre, n'hésitez pas à l'écrire.",
@@ -32,12 +32,9 @@ class AnswerPEnState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 80,
-              ),
               Text(
                   "If you wish, write a few words about yesterday's day in the journal.",
                   textAlign: TextAlign.center,
@@ -49,7 +46,7 @@ class AnswerPEnState extends State {
                 height: 80,
               ),
               Form(
-                key: _formKey,
+                key: form,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -71,8 +68,8 @@ class AnswerPEnState extends State {
                     ElevatedButton(
                       child: Text('Submit'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Process data.
+                        if (form.currentState!.validate()) {
+                          //récupération dans la base de données
                         }
                       },
                     ),
@@ -92,7 +89,7 @@ class AnswerNEn extends StatefulWidget {
 }
 
 class AnswerNEnState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
     "Quelque chose vous préoccupe ? N'hésitez pas à le partager, même si c'est quelque chose d'anodin.",
@@ -114,12 +111,9 @@ class AnswerNEnState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 80,
-              ),
               Text(
                   "If you wish, write a few words about yesterday's day in the journal.",
                   textAlign: TextAlign.center,
@@ -131,7 +125,7 @@ class AnswerNEnState extends State {
                 height: 80,
               ),
               Form(
-                key: _formKey,
+                key: form,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -153,8 +147,8 @@ class AnswerNEnState extends State {
                     ElevatedButton(
                       child: Text('Submit'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Process data.
+                        if (form.currentState!.validate()) {
+                          //récupération dans la base de données
                         }
                       },
                     ),
@@ -174,7 +168,7 @@ class NoAnswerEn extends StatefulWidget {
 }
 
 class NoAnswerEnState extends State {
-  final _formKey = GlobalKey<FormState>();
+  final form = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
     return ScaffoldEn(
@@ -187,12 +181,9 @@ class NoAnswerEnState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 80,
-              ),
               Text(
                   "If you wish, write a few words about yesterday's day in the journal.",
                   textAlign: TextAlign.center,
@@ -204,7 +195,7 @@ class NoAnswerEnState extends State {
                 height: 80,
               ),
               Form(
-                key: _formKey,
+                key: form,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -226,8 +217,8 @@ class NoAnswerEnState extends State {
                     ElevatedButton(
                       child: Text('Submit'),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Process data.
+                        if (form.currentState!.validate()) {
+                          //récupération dans la base de données
                         }
                       },
                     ),

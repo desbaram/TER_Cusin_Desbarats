@@ -1,9 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:date_format/date_format.dart';
 import 'main.dart';
-
-final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
 class AccountFr extends StatefulWidget {
   AccountFrState createState() => AccountFrState();
@@ -21,7 +18,7 @@ class AccountFrState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
         ),
       ),
     );
@@ -44,7 +41,7 @@ class AccountEnState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
         ),
       ),
     );
@@ -67,7 +64,7 @@ class AccountJpState extends State {
               fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
         ),
       ),
     );
