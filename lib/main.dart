@@ -8,6 +8,7 @@ import 'question.dart';
 import 'home.dart';
 import 'account.dart';
 import 'settings.dart';
+import 'avatar.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/accountFr': (context) => AccountFr(),
         '/settingsFr': (context) => SettingsFr(),
         '/choixFr': (context) => ChoixFr(),
+        '/avatarFr': (context) => AvatarFr(),
         '/homeEn': (context) => HomeEn(),
         '/questionEn': (context) => QuestionEn(),
         '/answerP_En': (context) => AnswerPEn(),
@@ -36,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/accountEn': (context) => AccountEn(),
         '/settingsEn': (context) => SettingsEn(),
         '/choixEn': (context) => ChoixEn(),
+        '/avatarEn': (context) => AvatarEn(),
         '/homeJp': (context) => HomeJp(),
         '/questionJp': (context) => QuestionJp(),
         '/answerP_Jp': (context) => AnswerPJp(),
@@ -44,6 +47,7 @@ class MyApp extends StatelessWidget {
         '/accountJp': (context) => AccountJp(),
         '/settingsJp': (context) => SettingsJp(),
         '/choixJp': (context) => ChoixJp(),
+        '/avatarJp': (context) => AvatarJp(),
       },
     );
   }
@@ -129,8 +133,8 @@ class ScaffoldFr extends StatelessWidget {
         child: Row(children: [
           IconButton(
               //un bouton icône représenté par l'image appelé ci-dessous
-              icon: Image.network(
-                "https://d1z1c2g2uiorau.cloudfront.net/128-large_default/drapeau-royaume-uni-5075-cm.jpg",
+              icon: Image.asset(
+                "assets/logo/UK.jpg",
                 width: 50.0,
                 height: 50.0,
               ),
@@ -142,8 +146,8 @@ class ScaffoldFr extends StatelessWidget {
               }),
           IconButton(
               //un bouton icône représenté par l'image appelé ci-dessous
-              icon: Image.network(
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/langfr-225px-Flag_of_Japan.svg.png",
+              icon: Image.asset(
+                "assets/logo/JP.png",
                 width: 50.0,
                 height: 50.0,
               ),
@@ -244,8 +248,8 @@ class ScaffoldEn extends StatelessWidget {
         color: Colors.blue,
         child: Row(children: [
           IconButton(
-              icon: Image.network(
-                "https://rotary-club-thann-cernay.org/wp-content/uploads/2016/01/flag-fr.png",
+              icon: Image.asset(
+                "assets/logo/FR.png",
                 width: 50.0,
                 height: 50.0,
               ),
@@ -256,8 +260,8 @@ class ScaffoldEn extends StatelessWidget {
                 );
               }),
           IconButton(
-              icon: Image.network(
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/langfr-225px-Flag_of_Japan.svg.png",
+              icon: Image.asset(
+                "assets/logo/JP.png",
                 width: 50.0,
                 height: 50.0,
               ),
@@ -358,8 +362,8 @@ class ScaffoldJp extends StatelessWidget {
         color: Colors.blue,
         child: Row(children: [
           IconButton(
-              icon: Image.network(
-                "https://rotary-club-thann-cernay.org/wp-content/uploads/2016/01/flag-fr.png",
+              icon: Image.asset(
+                "assets/logo/FR.png",
                 width: 50.0,
                 height: 50.0,
               ),
@@ -370,8 +374,8 @@ class ScaffoldJp extends StatelessWidget {
                 );
               }),
           IconButton(
-              icon: Image.network(
-                "https://d1z1c2g2uiorau.cloudfront.net/128-large_default/drapeau-royaume-uni-5075-cm.jpg",
+              icon: Image.asset(
+                "assets/logo/UK.jpg",
                 width: 50.0,
                 height: 50.0,
               ),

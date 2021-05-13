@@ -1,9 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:date_format/date_format.dart';
 import 'main.dart';
-
-final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
 class SettingsFr extends StatefulWidget {
   SettingsFrState createState() => SettingsFrState();
@@ -16,22 +13,21 @@ class SettingsFrState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
-        child: Center(
-          child: Container(
-            margin: const EdgeInsets.all(10.0),
-            child: OutlinedButton(
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          child: Column(children: [
+            OutlinedButton(
               child: Row(
                 children: [
-                  Text("Langues",
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
-                          fontStyle: FontStyle.italic)),
-                  SizedBox(width: 200),
+                  Expanded(
+                    child: Text("Langues",
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic)),
+                  ),
                   Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black,
@@ -54,7 +50,42 @@ class SettingsFrState extends State {
                 minimumSize: Size(180, 55),
               ),
             ),
-          ),
+            SizedBox(
+              height: 20,
+            ),
+            OutlinedButton(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text("Avatar",
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic)),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/avatarFr',
+                );
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.white,
+                shadowColor: Colors.grey,
+                elevation: 5,
+                side: BorderSide(color: Colors.grey, width: 2),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                minimumSize: Size(180, 55),
+              ),
+            ),
+          ]),
         ),
       ),
     );
@@ -72,22 +103,21 @@ class SettingsEnState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
-        child: Center(
-          child: Container(
-            margin: const EdgeInsets.all(10.0),
-            child: OutlinedButton(
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          child: Column(children: [
+            OutlinedButton(
               child: Row(
                 children: [
-                  Text("Languages",
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
-                          fontStyle: FontStyle.italic)),
-                  SizedBox(width: 172),
+                  Expanded(
+                    child: Text("Languages",
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic)),
+                  ),
                   Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black,
@@ -110,7 +140,42 @@ class SettingsEnState extends State {
                 minimumSize: Size(180, 55),
               ),
             ),
-          ),
+            SizedBox(
+              height: 20,
+            ),
+            OutlinedButton(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text("Avatar",
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic)),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/avatarEn',
+                );
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.white,
+                shadowColor: Colors.grey,
+                elevation: 5,
+                side: BorderSide(color: Colors.grey, width: 2),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                minimumSize: Size(180, 55),
+              ),
+            ),
+          ]),
         ),
       ),
     );
@@ -128,21 +193,21 @@ class SettingsJpState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
-        child: Center(
-          child: Container(
-            margin: const EdgeInsets.all(10.0),
-            child: OutlinedButton(
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          child: Column(children: [
+            OutlinedButton(
               child: Row(
                 children: [
-                  Text("言語",
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
-                          fontStyle: FontStyle.italic)),
+                  Expanded(
+                    child: Text("言語",
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic)),
+                  ),
                   SizedBox(width: 255),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -166,7 +231,42 @@ class SettingsJpState extends State {
                 minimumSize: Size(180, 55),
               ),
             ),
-          ),
+            SizedBox(
+              height: 20,
+            ),
+            OutlinedButton(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text("アバター",
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic)),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/avatarJp',
+                );
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.white,
+                shadowColor: Colors.grey,
+                elevation: 5,
+                side: BorderSide(color: Colors.grey, width: 2),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                minimumSize: Size(180, 55),
+              ),
+            ),
+          ]),
         ),
       ),
     );
@@ -184,26 +284,25 @@ class ChoixFrState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              Text("En quelle langue souhaitez-vous mettre l'application ?",
+              Text("Quelle langue souhaitez-vous utiliser ?",
                   style: TextStyle(fontSize: 35)),
               SizedBox(height: 80),
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("Français",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 200),
+                    Expanded(
+                      child: Text("Français",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,
@@ -230,12 +329,13 @@ class ChoixFrState extends State {
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("Anglais",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 215),
+                    Expanded(
+                      child: Text("English",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,
@@ -262,12 +362,13 @@ class ChoixFrState extends State {
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("Japonais",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 195),
+                    Expanded(
+                      child: Text("日本語",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,
@@ -309,26 +410,25 @@ class ChoixEnState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              Text("What language would you like the application to be in ?",
+              Text("What language do you want to use ?",
                   style: TextStyle(fontSize: 35)),
               SizedBox(height: 80),
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("French",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 222),
+                    Expanded(
+                      child: Text("Français",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,
@@ -355,12 +455,13 @@ class ChoixEnState extends State {
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("English",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 215),
+                    Expanded(
+                      child: Text("English",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,
@@ -387,12 +488,13 @@ class ChoixEnState extends State {
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("Japanese",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 188),
+                    Expanded(
+                      child: Text("日本語",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,
@@ -434,20 +536,19 @@ class ChoixJpState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(
             children: [
-              Text("アプリケーションをどの言語で表示するか ?", style: TextStyle(fontSize: 35)),
-              SizedBox(height: 80),
+              Expanded(
+                child: Text("どの言語を使いたいですか ?", style: TextStyle(fontSize: 35)),
+              ),
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("フランス語",
+                    Text("Français",
                         style: TextStyle(
                             fontSize: 30,
                             color: Colors.black,
@@ -479,12 +580,13 @@ class ChoixJpState extends State {
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("英語",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 250),
+                    Expanded(
+                      child: Text("English",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,
@@ -511,12 +613,13 @@ class ChoixJpState extends State {
               OutlinedButton(
                 child: Row(
                   children: [
-                    Text("日本語",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontStyle: FontStyle.italic)),
-                    SizedBox(width: 220),
+                    Expanded(
+                      child: Text("日本語",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic)),
+                    ),
                     Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.black,

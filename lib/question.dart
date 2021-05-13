@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'avatar.dart';
 
 class QuestionFr extends StatefulWidget {
   //classe des questions en français
@@ -8,6 +9,7 @@ class QuestionFr extends StatefulWidget {
 }
 
 class QuestionFrState extends State {
+  var im = AvatarFrState.image;
   int heure = DateTime.now().hour; //heure actuelle
   int i = (DateTime.now().weekday) - 1;
   //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
@@ -46,8 +48,7 @@ class QuestionFrState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
+              image: AssetImage("assets/fond/pastel.jpg"),
               fit: BoxFit.cover), //image en arrière plan de la page
         ),
         child: Container(
@@ -133,6 +134,20 @@ class QuestionFrState extends State {
                   primary: Colors.blue,
                 ),
               ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ]),
         ),
       ),
@@ -146,6 +161,7 @@ class QuestionEn extends StatefulWidget {
 }
 
 class QuestionEnState extends State {
+  var im = AvatarEnState.image;
   int heure = DateTime.now().hour;
   int i = (DateTime.now().weekday) - 1;
 
@@ -183,9 +199,7 @@ class QuestionEnState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
@@ -263,6 +277,20 @@ class QuestionEnState extends State {
                   primary: Colors.blue,
                 ),
               ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ]),
         ),
       ),
@@ -276,6 +304,7 @@ class QuestionJp extends StatefulWidget {
 }
 
 class QuestionJpState extends State {
+  var im = AvatarJpState.image;
   int heure = DateTime.now().hour;
   int i = (DateTime.now().weekday) - 1;
 
@@ -313,9 +342,7 @@ class QuestionJpState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
@@ -391,6 +418,20 @@ class QuestionJpState extends State {
                   primary: Colors.blue,
                 ),
               ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ]),
         ),
       ),

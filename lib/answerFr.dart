@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'avatar.dart';
 
 class AnswerPFr extends StatefulWidget {
   //classe lorsque l'utilisateur choisit la réponse positive
@@ -8,6 +9,7 @@ class AnswerPFr extends StatefulWidget {
 }
 
 class AnswerPFrState extends State {
+  var im = AvatarFrState.image;
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
@@ -26,15 +28,15 @@ class AnswerPFrState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
+              image: AssetImage("assets/fond/pastel.jpg"),
               fit: BoxFit.cover), //image de fond de la page
         ),
         child: Container(
-          margin: const EdgeInsets.symmetric(
-              vertical: 80.0,
-              horizontal:
-                  10.0), //marge pour que les éléments ne soient pas sur les bords de la page
+          margin: const EdgeInsets.only(
+              left: 10.0,
+              right: 10.0,
+              top:
+                  80.0), //marge pour que les éléments ne soient pas sur les bords de la page
           child: Column(children: [
             Text(phP[i],
                 textAlign: TextAlign.center,
@@ -48,32 +50,45 @@ class AnswerPFrState extends State {
             Form(
               key: form,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Taper ici pour entrer le texte',
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Entrer du texte avant d'envoyer";
-                      }
-                      return null;
-                    },
-                  ), //zone de texte où l'utilisateur peut écrire ce qu'il veut sur sa journée par exemple
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ElevatedButton(
-                      //bouton pour envoyer le texte écrit dans la base de données
-                      child: Text('Envoyer'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          //récupération réponse
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Taper ici pour entrer le texte',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Entrer du texte avant d'envoyer";
                         }
-                      }),
-                ],
+                        return null;
+                      },
+                    ), //zone de texte où l'utilisateur peut écrire ce qu'il veut sur sa journée par exemple
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                        //bouton pour envoyer le texte écrit dans la base de données
+                        child: Text('Envoyer'),
+                        onPressed: () {
+                          if (form.currentState!.validate()) {
+                            //récupération réponse
+                          }
+                        }),
+                  ]),
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
               ),
             ),
           ]),
@@ -89,6 +104,7 @@ class AnswerNFr extends StatefulWidget {
 }
 
 class AnswerNFrState extends State {
+  var im = AvatarFrState.image;
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
@@ -106,12 +122,10 @@ class AnswerNFrState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           child: Column(children: [
             Text(phN[i],
                 textAlign: TextAlign.center,
@@ -125,31 +139,44 @@ class AnswerNFrState extends State {
             Form(
               key: form,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Taper ici pour entrer le texte',
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Entrer du texte avant d'envoyer";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ElevatedButton(
-                      child: Text('Envoyer'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          // Process data.
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Taper ici pour entrer le texte',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Entrer du texte avant d'envoyer";
                         }
-                      }),
-                ],
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                        child: Text('Envoyer'),
+                        onPressed: () {
+                          if (form.currentState!.validate()) {
+                            // Process data.
+                          }
+                        }),
+                  ]),
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
               ),
             ),
           ]),
@@ -166,19 +193,17 @@ class NoAnswerFr extends StatefulWidget {
 
 class NoAnswerFrState extends State {
   final form = GlobalKey<FormState>();
-
+  var im = AvatarFrState.image;
   Widget build(BuildContext context) {
     return ScaffoldFr(
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           child: Column(children: [
             Text(
                 "Si vous le souhaitez, inscrivez quelques mots sur la journée d'hier dans le journal.",
@@ -193,31 +218,44 @@ class NoAnswerFrState extends State {
             Form(
               key: form,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Taper ici pour entrer le texte',
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Entrer du texte avant d'envoyer";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ElevatedButton(
-                      child: Text('Envoyer'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          // Process data.
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Taper ici pour entrer le texte',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Entrer du texte avant d'envoyer";
                         }
-                      }),
-                ],
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                        child: Text('Envoyer'),
+                        onPressed: () {
+                          if (form.currentState!.validate()) {
+                            // Process data.
+                          }
+                        }),
+                  ]),
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
               ),
             ),
           ]),

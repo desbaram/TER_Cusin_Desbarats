@@ -2,6 +2,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
 import 'main.dart';
+import 'avatar.dart';
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
@@ -10,6 +11,7 @@ class AnswerPEn extends StatefulWidget {
 }
 
 class AnswerPEnState extends State {
+  var im = AvatarEnState.image;
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phP = [
@@ -27,27 +29,24 @@ class AnswerPEnState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
-          child: Column(
-            children: [
-              Text(
-                  "If you wish, write a few words about yesterday's day in the journal.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                  )),
-              SizedBox(
-                height: 80,
-              ),
-              Form(
-                key: form,
-                child: Column(
+          child: Column(children: [
+            Text(
+                "If you wish, write a few words about yesterday's day in the journal.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30.0,
+                )),
+            SizedBox(
+              height: 80,
+            ),
+            Form(
+              key: form,
+              child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     TextFormField(
@@ -73,11 +72,23 @@ class AnswerPEnState extends State {
                         }
                       },
                     ),
-                  ],
+                  ]),
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );
@@ -89,6 +100,7 @@ class AnswerNEn extends StatefulWidget {
 }
 
 class AnswerNEnState extends State {
+  var im = AvatarEnState.image;
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
@@ -106,27 +118,24 @@ class AnswerNEnState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
-          child: Column(
-            children: [
-              Text(
-                  "If you wish, write a few words about yesterday's day in the journal.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                  )),
-              SizedBox(
-                height: 80,
-              ),
-              Form(
-                key: form,
-                child: Column(
+          child: Column(children: [
+            Text(
+                "If you wish, write a few words about yesterday's day in the journal.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30.0,
+                )),
+            SizedBox(
+              height: 80,
+            ),
+            Form(
+              key: form,
+              child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     TextFormField(
@@ -152,11 +161,23 @@ class AnswerNEnState extends State {
                         }
                       },
                     ),
-                  ],
+                  ]),
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );
@@ -168,35 +189,32 @@ class NoAnswerEn extends StatefulWidget {
 }
 
 class NoAnswerEnState extends State {
+  var im = AvatarEnState.image;
   final form = GlobalKey<FormState>();
-
   Widget build(BuildContext context) {
     return ScaffoldEn(
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
-          child: Column(
-            children: [
-              Text(
-                  "If you wish, write a few words about yesterday's day in the journal.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                  )),
-              SizedBox(
-                height: 80,
-              ),
-              Form(
-                key: form,
-                child: Column(
+          child: Column(children: [
+            Text(
+                "If you wish, write a few words about yesterday's day in the journal.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 30.0,
+                )),
+            SizedBox(
+              height: 80,
+            ),
+            Form(
+              key: form,
+              child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     TextFormField(
@@ -222,11 +240,23 @@ class NoAnswerEnState extends State {
                         }
                       },
                     ),
-                  ],
+                  ]),
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );

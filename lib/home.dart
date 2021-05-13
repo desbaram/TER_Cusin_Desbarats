@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'avatar.dart';
 
 class HomeFr extends StatefulWidget {
   //classe de la page d'accueil en français
@@ -8,15 +9,16 @@ class HomeFr extends StatefulWidget {
 }
 
 class HomeFrState extends State {
+  var im = AvatarFrState.image;
   int heure = DateTime.now().hour; //heure actuelle
   int i = (DateTime.now().weekday) - 1;
   //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
   List<String> phrase = [
     "Bonjour ! J'espère que vous allez bien aujourd'hui.",
-    "Bonjour, comment allez-vous ajourd'hui ?",
+    "Bonjour, comment allez-vous aujourd'hui ?",
     "Bonjour. J'espère que vous êtes en forme.",
     "Bonjour. Est-ce que vous allez bien depuis hier ?",
-    "Bonjour. Je viens prendre de vous nouvelles."
+    "Bonjour. Bienvenue dans votre journal."
   ]; //liste des phrases de bienvenue
 
   Widget build(BuildContext context) {
@@ -25,12 +27,11 @@ class HomeFrState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
+              image: AssetImage("assets/fond/pastel.jpg"),
               fit: BoxFit.cover), //image de fond de la page
         ),
         child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           //marge pour que les éléments ne soient pas collés au bord de page
           child: Column(children: [
             Text(phrase[i],
@@ -60,6 +61,20 @@ class HomeFrState extends State {
                   primary: Colors.blue,
                 ),
               ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ]),
         ),
       ),
@@ -73,6 +88,7 @@ class HomeEn extends StatefulWidget {
 }
 
 class HomeEnState extends State {
+  var im = AvatarEnState.image;
   int heure = DateTime.now().hour;
   int i = (DateTime.now().weekday) - 1;
 
@@ -94,12 +110,10 @@ class HomeEnState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           child: Column(children: [
             Text(
               phrase[i],
@@ -128,7 +142,21 @@ class HomeEnState extends State {
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
                 ),
-              )
+              ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ]),
         ),
       ),
@@ -142,6 +170,7 @@ class HomeJp extends StatefulWidget {
 }
 
 class HomeJpState extends State {
+  var im = AvatarJpState.image;
   int heure = DateTime.now().hour;
   int i = (DateTime.now().weekday) - 1;
 
@@ -163,12 +192,10 @@ class HomeJpState extends State {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/7c/41/59/7c41595a1fd265e66055f4f49b4844b0.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
+          margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           child: Column(children: [
             Text(
               phrase[i],
@@ -197,7 +224,21 @@ class HomeJpState extends State {
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
                 ),
-              )
+              ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: im,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ]),
         ),
       ),
