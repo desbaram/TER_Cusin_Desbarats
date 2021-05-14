@@ -9,6 +9,7 @@ import 'home.dart';
 import 'account.dart';
 import 'settings.dart';
 import 'avatar.dart';
+import 'journal.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/settingsFr': (context) => SettingsFr(),
         '/choixFr': (context) => ChoixFr(),
         '/avatarFr': (context) => AvatarFr(),
+        '/journalFr': (context) => JournalFr(),
         '/homeEn': (context) => HomeEn(),
         '/questionEn': (context) => QuestionEn(),
         '/answerP_En': (context) => AnswerPEn(),
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/settingsEn': (context) => SettingsEn(),
         '/choixEn': (context) => ChoixEn(),
         '/avatarEn': (context) => AvatarEn(),
+        '/journalEn': (context) => JournalEn(),
         '/homeJp': (context) => HomeJp(),
         '/questionJp': (context) => QuestionJp(),
         '/answerP_Jp': (context) => AnswerPJp(),
@@ -48,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/settingsJp': (context) => SettingsJp(),
         '/choixJp': (context) => ChoixJp(),
         '/avatarJp': (context) => AvatarJp(),
+        '/journalJp': (context) => JournalJp(),
       },
     );
   }

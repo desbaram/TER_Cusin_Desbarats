@@ -11,15 +11,6 @@ class HomeFr extends StatefulWidget {
 class HomeFrState extends State {
   var im = AvatarFrState.image;
   int heure = DateTime.now().hour; //heure actuelle
-  int i = (DateTime.now().weekday) - 1;
-  //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
-  List<String> phrase = [
-    "Bonjour ! J'espère que vous allez bien aujourd'hui.",
-    "Bonjour, comment allez-vous aujourd'hui ?",
-    "Bonjour. J'espère que vous êtes en forme.",
-    "Bonjour. Est-ce que vous allez bien depuis hier ?",
-    "Bonjour. Bienvenue dans votre journal."
-  ]; //liste des phrases de bienvenue
 
   Widget build(BuildContext context) {
     return ScaffoldFr(
@@ -34,19 +25,19 @@ class HomeFrState extends State {
           margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           //marge pour que les éléments ne soient pas collés au bord de page
           child: Column(children: [
-            Text(phrase[i],
+            Text("Bonjour, que voulez-vous faire ?",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
                   fontSize: 30.0,
-                )), //la phrase i de la liste, i étant un entier défini plus haut
+                )),
             SizedBox(
               height: 80,
             ),
             if (heure > 11) //heure à laquelle apparait la question donc 12h
               ElevatedButton(
                 //bouton qui permet d'accéder à la question quotidienne
-                child: Text("Accéder à la question",
+                child: Text("Répondre à la question du jour",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -61,6 +52,26 @@ class HomeFrState extends State {
                   primary: Colors.blue,
                 ),
               ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              //bouton qui permet d'accéder au journal
+              child: Text("Accéder au journal",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  )),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/journalFr',
+                ); //renvoie au journal lorsqu'on appuie
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+              ),
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomLeft,
@@ -90,19 +101,6 @@ class HomeEn extends StatefulWidget {
 class HomeEnState extends State {
   var im = AvatarEnState.image;
   int heure = DateTime.now().hour;
-  int i = (DateTime.now().weekday) - 1;
-
-  List<String> phrase = [
-    "Hello ! I hope you are well today.",
-    "Hello, how are you today ?",
-    "Hello. I hope you are well.",
-    "Hello. Have you been well since yesterday ?",
-    "Hello. I've come to check on you."
-  ];
-
-  void initState() {
-    super.initState();
-  }
 
   Widget build(BuildContext context) {
     return ScaffoldEn(
@@ -116,7 +114,7 @@ class HomeEnState extends State {
           margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           child: Column(children: [
             Text(
-              phrase[i],
+              "Hello, what do you want to do ?",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.blue,
@@ -128,7 +126,7 @@ class HomeEnState extends State {
             ),
             if (heure > 11)
               ElevatedButton(
-                child: Text("Access the question",
+                child: Text("Answer the question of the day",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -143,6 +141,26 @@ class HomeEnState extends State {
                   primary: Colors.blue,
                 ),
               ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              //bouton qui permet d'accéder au journal
+              child: Text("Access the diary",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  )),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/journalEn',
+                ); //renvoie au journal lorsqu'on appuie
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+              ),
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomLeft,
@@ -172,19 +190,6 @@ class HomeJp extends StatefulWidget {
 class HomeJpState extends State {
   var im = AvatarJpState.image;
   int heure = DateTime.now().hour;
-  int i = (DateTime.now().weekday) - 1;
-
-  List<String> phrase = [
-    "こんにちは。 今日も元気に過ごしてくださいね.",
-    "こんにちは、今日はお元気ですか ?",
-    "こんにちは。 お元気ですか ?",
-    "こんにちは。 昨日から元気にしていますか ?",
-    "こんにちは。 あなたの様子を見に来ました."
-  ];
-
-  void initState() {
-    super.initState();
-  }
 
   Widget build(BuildContext context) {
     return ScaffoldJp(
@@ -198,7 +203,7 @@ class HomeJpState extends State {
           margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           child: Column(children: [
             Text(
-              phrase[i],
+              "こんにちは、あなたは何をしたいですか ?",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.blue,
@@ -210,7 +215,7 @@ class HomeJpState extends State {
             ),
             if (heure > 11)
               ElevatedButton(
-                child: Text("質問にアクセスする",
+                child: Text("その日の質問に答える",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -225,6 +230,26 @@ class HomeJpState extends State {
                   primary: Colors.blue,
                 ),
               ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              //bouton qui permet d'accéder au journal
+              child: Text("議題にアクセスする",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  )),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/journalJp',
+                ); //renvoie au journal lorsqu'on appuie
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+              ),
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomLeft,
