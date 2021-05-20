@@ -1,0 +1,27 @@
+{
+    "@@locale" : "fr",
+    "helloWorld" : "Bonjour Monde!",
+    "homeName" : "Page d'acceuil",
+    "henuName" : "Menu",
+    "profileName" : "Profil",
+    "parametersName" : "Paramètres",
+
+    "homePageHeader" : "Page d'acceuil",
+    "questionPageHeader" : "Mikou-Chan",
+    "profilePageHeader" : "Mon Compte",
+    "parametersPageHeader" : "Paramètres",
+    "languagePageHeader" : "Langues",
+    "avatarPageHeader" : "Avatar",
+
+    "welcomeMessage" : "Bonjour! Que voulez-vous faire ?",
+    "answerMessage" : "Répondre à la question du jour",
+    "accessLogMessage" : "Accéder à mon journal",
+
+    "languageQuestion" : "Quelle langue souhaitez-vous utiliser ?",
+    "avatarQuestion" : "Choisissez un avatar",
+
+    "doNotWishToAnswer" : "Je ne souhaite pas répondre à cette question.",
+
+    "languageOption" : "Langues",
+    "avatarOption" : "Avatar"
+}

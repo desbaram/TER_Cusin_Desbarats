@@ -1,0 +1,27 @@
+{
+    "@@locale" : "ja",
+    "helloWorld" : "こんにちは世界",
+    "homeName" : "ホームページ",
+    "menuName" : "メニュー",
+    "profileName" : "プロフィール",
+    "parametersName" : "パラメーター",
+
+    "homePageHeader" : "ホームページ",
+    "questionPageHeader" : "みこうちゃん",
+    "profilePageHeader" : "プロフィール",
+    "parametersPageHeader" : "パラメーター",
+    "languagePageHeader" : "言語",
+    "avatarPageHeader" : "アバター",
+
+    "welcomeMessage" : "ようこそ！ 今日は何したい",
+    "answerMessage" : "今日の質問に答える",
+    "accessLogMessage" : "ログにアクセスする",
+
+    "languageQuestion" : "言語を選択してください",
+    "avatarQuestion" : "アバターを選択してください",
+
+    "doNotWishToAnswer" : "この質問に答えたくありません.",
+
+    "languageOption" : "言語",
+    "avatarOption" : "アバター"
+}

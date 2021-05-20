@@ -1,7 +1,9 @@
 import 'dart:core';
+
 import 'package:flutter/material.dart';
-import 'main.dart';
+
 import 'avatar.dart';
+import 'main.dart';
 
 class AnswerPFr extends StatefulWidget {
   //classe lorsque l'utilisateur choisit la réponse positive
@@ -9,7 +11,7 @@ class AnswerPFr extends StatefulWidget {
 }
 
 class AnswerPFrState extends State {
-  var im = AvatarFrState.image;
+  var im = AvatarState.image;
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
@@ -23,20 +25,16 @@ class AnswerPFrState extends State {
     "C'est bien. Si quelque chose vous préoccupe, n'hésitez pas à le partager."
   ]; //phrase de réponse à la réponse de l'utiliseur
   Widget build(BuildContext context) {
-    return ScaffoldFr(
+    return MainScaffold(
       title: "Mikou-chan", //nom de la page sur l'appBar
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"),
-              fit: BoxFit.cover), //image de fond de la page
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover), //image de fond de la page
         ),
         child: Container(
           margin: const EdgeInsets.only(
-              left: 10.0,
-              right: 10.0,
-              top:
-                  80.0), //marge pour que les éléments ne soient pas sur les bords de la page
+              left: 10.0, right: 10.0, top: 80.0), //marge pour que les éléments ne soient pas sur les bords de la page
           child: Column(children: [
             Text(phP[i],
                 textAlign: TextAlign.center,
@@ -49,33 +47,31 @@ class AnswerPFrState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Taper ici pour entrer le texte',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Entrer du texte avant d'envoyer";
-                        }
-                        return null;
-                      },
-                    ), //zone de texte où l'utilisateur peut écrire ce qu'il veut sur sa journée par exemple
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                        //bouton pour envoyer le texte écrit dans la base de données
-                        child: Text('Envoyer'),
-                        onPressed: () {
-                          if (form.currentState!.validate()) {
-                            //récupération réponse
-                          }
-                        }),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Taper ici pour entrer le texte',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Entrer du texte avant d'envoyer";
+                    }
+                    return null;
+                  },
+                ), //zone de texte où l'utilisateur peut écrire ce qu'il veut sur sa journée par exemple
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    //bouton pour envoyer le texte écrit dans la base de données
+                    child: Text('Envoyer'),
+                    onPressed: () {
+                      if (form.currentState!.validate()) {
+                        //récupération réponse
+                      }
+                    }),
+              ]),
             ),
             Expanded(
               child: Align(
@@ -104,7 +100,7 @@ class AnswerNFr extends StatefulWidget {
 }
 
 class AnswerNFrState extends State {
-  var im = AvatarFrState.image;
+  var im = AvatarState.image;
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
@@ -117,12 +113,11 @@ class AnswerNFrState extends State {
     "Souhaitez-vous parler de ce qui vous rend anxieux ou stressé ?"
   ];
   Widget build(BuildContext context) {
-    return ScaffoldFr(
+    return MainScaffold(
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
@@ -138,32 +133,30 @@ class AnswerNFrState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Taper ici pour entrer le texte',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Entrer du texte avant d'envoyer";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                        child: Text('Envoyer'),
-                        onPressed: () {
-                          if (form.currentState!.validate()) {
-                            // Process data.
-                          }
-                        }),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Taper ici pour entrer le texte',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Entrer du texte avant d'envoyer";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    child: Text('Envoyer'),
+                    onPressed: () {
+                      if (form.currentState!.validate()) {
+                        // Process data.
+                      }
+                    }),
+              ]),
             ),
             Expanded(
               child: Align(
@@ -193,20 +186,18 @@ class NoAnswerFr extends StatefulWidget {
 
 class NoAnswerFrState extends State {
   final form = GlobalKey<FormState>();
-  var im = AvatarFrState.image;
+  var im = AvatarState.image;
   Widget build(BuildContext context) {
-    return ScaffoldFr(
+    return MainScaffold(
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           child: Column(children: [
-            Text(
-                "Si vous le souhaitez, inscrivez quelques mots sur la journée d'hier dans le journal.",
+            Text("Si vous le souhaitez, inscrivez quelques mots sur la journée d'hier dans le journal.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
@@ -217,32 +208,30 @@ class NoAnswerFrState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Taper ici pour entrer le texte',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Entrer du texte avant d'envoyer";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                        child: Text('Envoyer'),
-                        onPressed: () {
-                          if (form.currentState!.validate()) {
-                            // Process data.
-                          }
-                        }),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Taper ici pour entrer le texte',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Entrer du texte avant d'envoyer";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    child: Text('Envoyer'),
+                    onPressed: () {
+                      if (form.currentState!.validate()) {
+                        // Process data.
+                      }
+                    }),
+              ]),
             ),
             Expanded(
               child: Align(

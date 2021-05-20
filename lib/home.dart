@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'avatar.dart';
 import 'main.dart';
@@ -17,7 +18,7 @@ class HomeState extends State {
   Widget build(BuildContext context) {
     return MainScaffold(
       //todo: changer pour interpoler
-      title: "Page d'accueil", //nom inscrit sur l'appBar
+      title: AppLocalizations.of(context)!.homePageHeader, //nom inscrit sur l'appBar
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -27,7 +28,7 @@ class HomeState extends State {
           margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 80.0),
           //marge pour que les éléments ne soient pas collés au bord de page
           child: Column(children: [
-            Text("Bonjour, que voulez-vous faire ?",
+            Text(AppLocalizations.of(context)!.welcomeMessage,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
@@ -39,8 +40,8 @@ class HomeState extends State {
             if (heure > 11) //heure à laquelle apparait la question donc 12h
               ElevatedButton(
                 //bouton qui permet d'accéder à la question quotidienne
-                //todo:
-                child: Text("Répondre à la question du jour",
+
+                child: Text(AppLocalizations.of(context)!.answerMessage,
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -60,8 +61,7 @@ class HomeState extends State {
             ),
             ElevatedButton(
               //bouton qui permet d'accéder au journal
-              //todo
-              child: Text("Accéder au journal",
+              child: Text(AppLocalizations.of(context)!.accessLogMessage,
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,

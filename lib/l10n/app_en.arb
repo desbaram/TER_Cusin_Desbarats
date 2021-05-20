@@ -1,0 +1,27 @@
+{
+    "@@locale" : "en",
+    "helloWorld" : "Hello World!",
+    "homeName" : "Homepage",
+    "menuName" : "Menu",
+    "profileName" : "Profile",
+    "parametersName" : "Settings",
+
+    "homePageHeader" : "Homepage",
+    "questionPageHeader" : "Mikou-Chan",
+    "profilePageHeader" : "My Profile",
+    "parametersPageHeader" : "Settings",
+    "languagePageHeader" : "Languages",
+    "avatarPageHeader" : "Avatar",
+
+    "welcomeMessage" : "Hello! What would you like to do?",
+    "answerMessage" : "Answer today's question",
+    "accessLogMessage" : "Access the log",
+
+    "languageQuestion" : "What language would you like to us?",
+    "avatarQuestion" : "Pick an avatar",
+
+    "doNotWishToAnswer" : "I do not wish to answer this question.",
+
+    "languageOption" : "Languages",
+    "avatarOption" : "Avatar"
+}

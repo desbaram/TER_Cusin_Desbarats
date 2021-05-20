@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'avatar.dart';
 import 'main.dart';
@@ -45,7 +46,7 @@ class QuestionPageState extends State {
 
   Widget build(BuildContext context) {
     return MainScaffold(
-      title: "Mikou-chan", //nom de la page sur l'appBar (barre d'outils du haut)
+      title: AppLocalizations.of(context)!.questionPageHeader, //nom de la page sur l'appBar (barre d'outils du haut)
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -91,6 +92,7 @@ class QuestionPageState extends State {
               if (heure > 11) //la réponse apparait à la même heure que la question donc 12h
                 ElevatedButton(
                   //un bouton pour la réponse négative
+                  //todo: récupérer les réponses proprements et les insérer ici avec la bonne langue
                   child: Text(repN[i],
                       style: TextStyle(
                         fontSize: 20,
@@ -114,7 +116,7 @@ class QuestionPageState extends State {
             if (heure > 11) //la réponse apparait à la même heure que la question donc 12h
               ElevatedButton(
                 //un bouton pour ceux qui ne souhaite pas répondre à cette question
-                child: Text("Je ne souhaite pas répondre",
+                child: Text(AppLocalizations.of(context)!.doNotWishToAnswer,
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,

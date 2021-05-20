@@ -2,6 +2,8 @@ import 'dart:core';
 
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'account.dart';
 import 'answerFr.dart';
@@ -19,6 +21,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mon compagnon virtuel',
+      //Ce qui suit permet de gérer la localisation
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'UK'),
+        const Locale('fr', 'FR'),
+        const Locale('ja', 'JP'),
+      ],
       initialRoute: '/',
       routes: {
         //routes pour naviguer entre les pages
@@ -29,7 +43,7 @@ class MyApp extends StatelessWidget {
         '/noAnswer_Fr': (context) => NoAnswerFr(),
         '/accountFr': (context) => AccountPage(),
         '/settingsFr': (context) => SettingsPage(),
-        '/choixFr': (context) => ChoixFr(),
+        '/choixFr': (context) => ChoicePage(),
         '/avatarFr': (context) => Avatar(),
         '/journalFr': (context) => JournalPage(),
       },
@@ -49,7 +63,7 @@ class DrawerMenu extends StatelessWidget {
               color: Colors.blue,
             ),
             child: Text(
-              'Menu',
+              AppLocalizations.of(context)!.menuName,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 30,
@@ -59,7 +73,7 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             //première option du menu
             leading: Icon(Icons.home), //son icône
-            title: Text("Page d'accueil"), //son nom
+            title: Text(AppLocalizations.of(context)!.homeName), //son nom
             onTap: () {
               Navigator.pushNamed(
                 context,
@@ -70,7 +84,7 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             //deuxième option du menu
             leading: Icon(Icons.account_circle), //son icône
-            title: Text('Profil'), //son nom
+            title: Text(AppLocalizations.of(context)!.profileName), //son nom
             onTap: () {
               Navigator.pushNamed(
                 context,
@@ -81,7 +95,7 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             //troisième option du menu
             leading: Icon(Icons.settings), //son icône
-            title: Text('Paramètres'), //son nom
+            title: Text(AppLocalizations.of(context)!.parametersName), //son nom
             onTap: () {
               Navigator.pushNamed(
                 context,
