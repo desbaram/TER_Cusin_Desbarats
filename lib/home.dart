@@ -14,7 +14,7 @@ class HomeState extends State {
   //todo: mettre ça à jour selon la valeur globale
   var im = AssetImage("assets/avatar/robot.png");
   int heure = DateTime.now().hour; //heure actuelle
-
+  var e1;
   Widget build(BuildContext context) {
     return MainScaffold(
       title: AppLocalizations.of(context)!.homePageHeader, //nom inscrit sur l'appBar
@@ -38,6 +38,7 @@ class HomeState extends State {
             ),
             if (heure > 11) //heure à laquelle apparait la question donc 12h
               ElevatedButton(
+                key: e1,
                 //bouton qui permet d'accéder à la question quotidienne
 
                 child: Text(AppLocalizations.of(context)!.answerMessage,

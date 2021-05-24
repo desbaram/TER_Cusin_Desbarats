@@ -76,16 +76,25 @@ class _MyAppState extends State<MyApp> {
         //fontFamily : 'Name',
         textTheme: TextTheme(
           //gros text bleu gras
-          headline1: TextStyle(fontSize: 30, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
+          headline1: TextStyle(
+              fontSize: 30,
+              color: Theme.of(context).primaryColor,
+              fontWeight: FontWeight.bold),
           //gros text noir gras
-          headline2: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
+          headline2: TextStyle(
+              fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
           //gros text noir italique
-          headline3:
-              TextStyle(fontSize: 30, color: Colors.black, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+          headline3: TextStyle(
+              fontSize: 30,
+              color: Colors.black,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold),
           //petit texte bleu
-          bodyText1: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
+          bodyText1:
+              TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
           //petit texte blanc
-          bodyText2: TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
+          bodyText2:
+              TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
         ),
       ),
       //Ce qui suit permet de gérer la localisation
@@ -115,83 +124,66 @@ class _MyAppState extends State<MyApp> {
         '/journalPage': (context) => JournalPage(),
       },
     );
+  }
+}
 
-    /*
-    return FutureBuilder(
-        future: getLoc(),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-            case ConnectionState.waiting:
-              return DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: SpinKitRotatingCircle(
-                  color: Colors.blue,
-                  size: 50.0,
-                ),
-              );
-            case ConnectionState.done:
-              if (snapshot.hasError) {
-                return Text("Error loading locale data: ${snapshot.error}");
-              } else {
-                return MaterialApp(
-                  locale: currentLocale,
-                  debugShowCheckedModeBanner: false,
-                  title: 'Mon compagnon virtuel',
-                  theme: ThemeData(
-                    primaryColor: Colors.blue,
-                    accentColor: Colors.white,
-                    //fontFamily : 'Name',
-                    textTheme: TextTheme(
-                      //gros text bleu gras
-                      headline1:
-                          TextStyle(fontSize: 30, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
-                      //gros text noir gras
-                      headline2: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
-                      //gros text noir italique
-                      headline3: TextStyle(
-                          fontSize: 30, color: Colors.black, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
-                      //petit texte bleu
-                      bodyText1: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
-                      //petit texte blanc
-                      bodyText2: TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
-                    ),
-                  ),
-                  //Ce qui suit permet de gérer la localisation
-                  localizationsDelegates: [
-                    AppLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ],
-                  supportedLocales: [
-                    const Locale('en', 'UK'),
-                    const Locale('fr', 'FR'),
-                    const Locale('ja', 'JP'),
-                  ],
-                  initialRoute: '/',
-                  routes: {
-                    //routes pour naviguer entre les pages
-                    '/': (context) => HomePage(refreshState),
-                    '/questionPage': (context) => QuestionPage(),
-                    '/positiveAnswerPage': (context) => AnswerPFr(),
-                    '/negativeAnswerPage': (context) => AnswerNFr(),
-                    '/noAnswerPage': (context) => NoAnswerFr(),
-                    '/accountPage': (context) => AccountPage(),
-                    '/settingsPage': (context) => SettingsPage(),
-                    '/languageSettingPage': (context) => LanguageSettingPage(),
-                    '/avatarPage': (context) => AvatarPage(),
-                    '/journalPage': (context) => JournalPage(),
-                  },
-                );
-              }
-            default:
-              return Text("hello");
-          }
-        });
-     */
+class DrawerFr extends StatelessWidget {
+  //classe pour le menu français
+  Widget build(BuildContext context) {
+    // key: scaffoldKey,
+
+    return Drawer(
+      child: ListView(
+        children: <Widget>[
+          DrawerHeader(
+            //haut du menu
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Menu',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+              ),
+            ), //nom en haut du menu
+          ),
+          ListTile(
+            //première option du menu
+            leading: Icon(Icons.home), //son icône
+            title: Text("Page d'accueil"), //son nom
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/',
+              ); //quand on appuie dessus, on est redirigé vers la route suivante
+            },
+          ),
+          ListTile(
+            //deuxième option du menu
+            leading: Icon(Icons.account_circle), //son icône
+            title: Text('Profil'), //son nom
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/accountFr',
+              ); //quand on appuie dessus, on est redirigé vers la route suivante
+            },
+          ),
+          ListTile(
+            //troisième option du menu
+            leading: Icon(Icons.settings), //son icône
+            title: Text('Paramètres'), //son nom
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/settingsFr',
+              ); //quand on appuie dessus, on est redirigé vers la route suivante
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
 

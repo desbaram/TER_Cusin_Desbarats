@@ -18,6 +18,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   //todo: mettre ça à jour selon la valeur globale
   var im = Image.asset("assets/avatar/dog.png");
+
   int heure = DateTime.now().hour; //heure actuelle
   //todo: implémenter un truc jour/mois pour le format japonais
   String date = DateFormat("dd MM yyyy").format(DateTime.now());
@@ -79,7 +80,8 @@ class HomePageState extends State<HomePage> {
                             },
                       child: (heure < 11)
                           ? Text(
-                              AppLocalizations.of(context)!.questionAvailableAt11,
+                              AppLocalizations.of(context)!
+                                  .questionAvailableAt11,
                               textAlign: TextAlign.center,
                             )
                           : Text(
@@ -95,7 +97,8 @@ class HomePageState extends State<HomePage> {
                       onPressed: () {
                         Navigator.pushNamed(context, '/journalPage');
                       },
-                      child: Text(AppLocalizations.of(context)!.accessLogMessage),
+                      child:
+                          Text(AppLocalizations.of(context)!.accessLogMessage),
                       style: style,
                     ),
                   ],
@@ -225,10 +228,12 @@ class _LanguageButtonState extends State<LanguageButton> {
     ImageIcon buttonIcon;
     switch (currentLocale.languageCode) {
       case 'ja':
-        buttonIcon = ImageIcon(AssetImage("assets/flags/ja_flag.png"), color: null);
+        buttonIcon =
+            ImageIcon(AssetImage("assets/flags/ja_flag.png"), color: null);
         break;
       case 'fr':
-        buttonIcon = ImageIcon(AssetImage("assets/flags/fr_flag.png"), color: null);
+        buttonIcon =
+            ImageIcon(AssetImage("assets/flags/fr_flag.png"), color: null);
         break;
       default:
         buttonIcon = ImageIcon(AssetImage("assets/flags/uk_flag.png"));
@@ -237,7 +242,9 @@ class _LanguageButtonState extends State<LanguageButton> {
       padding: const EdgeInsets.all(8.0),
       child: DropdownButton(
         onChanged: (Language? lang) {
-          lang == null ? print("Null language error") : _changeLanguage(lang.languageCode);
+          lang == null
+              ? print("Null language error")
+              : _changeLanguage(lang.languageCode);
         },
         underline: SizedBox(),
         icon: Icon(
@@ -247,13 +254,15 @@ class _LanguageButtonState extends State<LanguageButton> {
         items: Language.languageList()
             .map<DropdownMenuItem<Language>>((lang) => DropdownMenuItem(
                 value: lang,
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                  Text(
-                    lang.drapeau,
-                    style: new TextStyle(fontSize: 30),
-                  ),
-                  Text(lang.language),
-                ])))
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        lang.drapeau,
+                        style: new TextStyle(fontSize: 30),
+                      ),
+                      Text(lang.language),
+                    ])))
             .toList(),
       ),
     );
