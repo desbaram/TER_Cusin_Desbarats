@@ -11,7 +11,7 @@ class HomeFr extends StatefulWidget {
 class HomeFrState extends State {
   var im = AvatarFrState.image;
   int heure = DateTime.now().hour; //heure actuelle
-
+  var e1;
   Widget build(BuildContext context) {
     return ScaffoldFr(
       title: "Page d'accueil", //nom inscrit sur l'appBar
@@ -36,6 +36,7 @@ class HomeFrState extends State {
             ),
             if (heure > 11) //heure à laquelle apparait la question donc 12h
               ElevatedButton(
+                key: e1,
                 //bouton qui permet d'accéder à la question quotidienne
                 child: Text("Répondre à la question du jour",
                     style: TextStyle(

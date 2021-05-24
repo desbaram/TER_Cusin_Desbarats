@@ -60,6 +60,8 @@ class MyApp extends StatelessWidget {
 class DrawerFr extends StatelessWidget {
   //classe pour le menu français
   Widget build(BuildContext context) {
+    // key: scaffoldKey,
+
     return Drawer(
       child: ListView(
         children: <Widget>[
