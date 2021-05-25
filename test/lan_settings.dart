@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter/src/widgets/image.dart';
+// import 'package:flutter/src/widgets/image.dart';
 
 import 'package:compagnon_virtuel/main.dart';
 import 'package:compagnon_virtuel/settings.dart';
