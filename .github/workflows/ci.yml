@@ -1,6 +1,6 @@
 name: CI
 on:
-  pull request:
+  pull_request:
     branches:
       - Eddy_dev
 
