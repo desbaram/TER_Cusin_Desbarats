@@ -40,6 +40,16 @@ void main() {
       ),
     );
     expect(find.byType(TextFormField), findsOneWidget);
+    // await tester.pumpAndSettle();
+    var send = find.text("Envoyer");
+    await tester.pump(Duration(seconds: 2));
+    await tester.tap(send, warnIfMissed: false);
+
+    await tester.enterText(find.byType(TextFormField), 'Porte bien aujourdhui');
+    expect(find.text('Porte bien aujourdhui'), findsOneWidget);
+    var send1 = find.text("Envoyer");
+    await tester.pump(Duration(seconds: 2));
+    await tester.tap(send1, warnIfMissed: false);
     await tester.pumpAndSettle();
   });
 }
