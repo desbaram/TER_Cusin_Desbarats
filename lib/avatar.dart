@@ -43,7 +43,7 @@ class AvatarState extends State {
                               onPressed: () {
                                 Navigator.pushNamed(
                                   context,
-                                  '/settingsFr',
+                                  '/settingsPage',
                                 ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeEn
                                 setState(() {
                                   image = AssetImage("assets/avatar/cat.png");
@@ -63,7 +63,7 @@ class AvatarState extends State {
                               onPressed: () {
                                 Navigator.pushNamed(
                                   context,
-                                  '/settingsFr',
+                                  '/settingsPage',
                                 ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeEn
                                 setState(() {
                                   image = AssetImage("assets/avatar/dog.png");
@@ -83,7 +83,7 @@ class AvatarState extends State {
                               onPressed: () {
                                 Navigator.pushNamed(
                                   context,
-                                  '/settingsFr',
+                                  '/settingsPage',
                                 ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeEn
                                 setState(() {
                                   image = AssetImage("assets/avatar/ghost.png");
@@ -103,7 +103,7 @@ class AvatarState extends State {
                               onPressed: () {
                                 Navigator.pushNamed(
                                   context,
-                                  '/settingsFr',
+                                  '/settingsPage',
                                 ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeEn
                                 setState(() {
                                   image = AssetImage("assets/avatar/robot.png");

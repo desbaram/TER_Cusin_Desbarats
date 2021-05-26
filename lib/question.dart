@@ -78,7 +78,7 @@ class QuestionPageState extends State {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/answerP_Fr',
+                      '/positiveAnswerPage',
                     ); //la route vers laquelle on est redirigé lorsqu'on choisit cette réponse
                   },
                   style: ElevatedButton.styleFrom(
@@ -101,7 +101,7 @@ class QuestionPageState extends State {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/answerN_Fr',
+                      '/negativeAnswerPage',
                     ); //la route vers laquelle on est redirigé lorsqu'on choisit cette réponse
                   },
                   style: ElevatedButton.styleFrom(
@@ -124,7 +124,7 @@ class QuestionPageState extends State {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '/noAnswer_Fr',
+                    '/noAnswerPage',
                   ); //la route vers laquelle on est redirigé lorsqu'on choisit de ne pas répondre
                 },
                 style: ElevatedButton.styleFrom(

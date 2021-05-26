@@ -8,19 +8,40 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'account.dart';
 import 'answerFr.dart';
 import 'avatar.dart';
+import 'classes/language.dart';
 import 'home.dart';
 import 'journal.dart';
 import 'question.dart';
 import 'settings.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MaterialApp(home: MyApp()));
+}
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+
+  static _MyAppState? of(BuildContext context) => context.findAncestorStateOfType<_MyAppState>();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale? _locale;
+
+  void setLocale(Locale value) {
+    setState(() {
+      _locale = value;
+    });
+  }
+
   Widget build(BuildContext context) {
+    _locale = Localizations.localeOf(context);
     return MaterialApp(
       title: 'Mon compagnon virtuel',
+      locale: _locale,
+      debugShowCheckedModeBanner: false,
       //Ce qui suit permet de gérer la localisation
       localizationsDelegates: [
         AppLocalizations.delegate,
@@ -37,16 +58,60 @@ class MyApp extends StatelessWidget {
       routes: {
         //routes pour naviguer entre les pages
         '/': (context) => Home(),
-        '/questionFr': (context) => QuestionPage(),
-        '/answerP_Fr': (context) => AnswerPFr(),
-        '/answerN_Fr': (context) => AnswerNFr(),
-        '/noAnswer_Fr': (context) => NoAnswerFr(),
-        '/accountFr': (context) => AccountPage(),
-        '/settingsFr': (context) => SettingsPage(),
-        '/choixFr': (context) => ChoicePage(),
-        '/avatarFr': (context) => Avatar(),
-        '/journalFr': (context) => JournalPage(),
+        '/questionPage': (context) => QuestionPage(),
+        '/positiveAnswerPage': (context) => AnswerPFr(),
+        '/negativeAnswerPage': (context) => AnswerNFr(),
+        '/noAnswerPage': (context) => NoAnswerFr(),
+        '/accountPage': (context) => AccountPage(),
+        '/settingsPage': (context) => SettingsPage(),
+        '/choicePage': (context) => ChoicePage(),
+        '/avatarPage': (context) => Avatar(),
+        '/journalPage': (context) => JournalPage(),
       },
+    );
+  }
+}
+
+class LanguageButton extends StatelessWidget {
+  void changeLanguage(Language? lang) {
+    Locale temp;
+    switch (lang!.languageCode) {
+      case 'ja':
+        temp = Locale(lang.languageCode, 'JA');
+        break;
+      case 'fr':
+        temp = Locale(lang.languageCode, 'FR');
+        break;
+      default:
+        temp = Locale(lang.languageCode, 'UK');
+    }
+    MyApp.of(mycontext)!.setLocale(temp);
+  }
+
+  late BuildContext mycontext; //I can do that to force it but it's not helping
+  Widget build(BuildContext context) {
+    mycontext = context; //and here's where I force it
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: DropdownButton(
+        underline: SizedBox(),
+        onChanged: changeLanguage,
+        icon: Icon(
+          Icons.language,
+          color: Colors.white,
+        ),
+        items: Language.languageList()
+            .map<DropdownMenuItem<Language>>((lang) => DropdownMenuItem(
+                value: lang,
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                  Text(
+                    lang.drapeau,
+                    style: new TextStyle(fontSize: 30),
+                  ),
+                  Text(lang.language),
+                ])))
+            .toList(),
+      ),
     );
   }
 }
@@ -88,7 +153,7 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(
                 context,
-                '/accountFr',
+                '/accountPage',
               ); //quand on appuie dessus, on est redirigé vers la route suivante
             },
           ),
@@ -99,7 +164,7 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(
                 context,
-                '/settingsFr',
+                '/settingsPage',
               ); //quand on appuie dessus, on est redirigé vers la route suivante
             },
           ),
@@ -119,6 +184,7 @@ class MainScaffold extends StatelessWidget {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
+        actions: [new LanguageButton()],
         title: Text(
           title,
         ),
@@ -139,7 +205,7 @@ class MainScaffold extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  '/homeEn',
+                  '/',
                 ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeEn
               }),
           IconButton(
@@ -152,7 +218,7 @@ class MainScaffold extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  '/homeJp',
+                  '/',
                 ); //lorsqu'on clique sur l'icône, on est redirigé vers la page /homeJp
               }),
           SizedBox(

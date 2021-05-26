@@ -36,7 +36,7 @@ class SettingsPageState extends State {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  '/choixFr',
+                  '/choicePage',
                 );
               },
               style: OutlinedButton.styleFrom(
@@ -67,7 +67,7 @@ class SettingsPageState extends State {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  '/avatarFr',
+                  '/avatarPage',
                 );
               },
               style: OutlinedButton.styleFrom(
@@ -120,7 +120,7 @@ class ChoicePageState extends State {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '/settingsFr',
+                    '/settingsPage',
                   );
                 },
                 style: OutlinedButton.styleFrom(
@@ -149,7 +149,7 @@ class ChoicePageState extends State {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '/settingsEn',
+                    '/settingsPage',
                   );
                 },
                 style: OutlinedButton.styleFrom(
@@ -178,7 +178,7 @@ class ChoicePageState extends State {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '/settingsJp',
+                    '/settingsPage',
                   );
                 },
                 style: OutlinedButton.styleFrom(

@@ -17,7 +17,6 @@ class HomeState extends State {
 
   Widget build(BuildContext context) {
     return MainScaffold(
-      //todo: changer pour interpoler
       title: AppLocalizations.of(context)!.homePageHeader, //nom inscrit sur l'appBar
       body: Container(
         decoration: BoxDecoration(
@@ -49,7 +48,7 @@ class HomeState extends State {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '/questionFr',
+                    '/questionPage',
                   ); //renvoie à la question lorsqu'on appuie
                 },
                 style: ElevatedButton.styleFrom(
@@ -69,7 +68,7 @@ class HomeState extends State {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  '/journalFr',
+                  '/journalPage',
                 ); //renvoie au journal lorsqu'on appuie
               },
               style: ElevatedButton.styleFrom(
