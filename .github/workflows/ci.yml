@@ -1,8 +1,8 @@
-name: CI
+name: Dart
 on:
   pull_request:
     branches:
-      - Eddy_dev
+      - master
 
 jobs:
   flutter_test:
@@ -16,7 +16,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
-      - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test
+      - run: dart pub get
+      - run: dart analyze
+      - run: dart test
       
