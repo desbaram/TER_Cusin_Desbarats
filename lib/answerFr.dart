@@ -2,7 +2,6 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 
-import 'avatar.dart';
 import 'main.dart';
 
 class AnswerPFr extends StatefulWidget {
@@ -11,7 +10,7 @@ class AnswerPFr extends StatefulWidget {
 }
 
 class AnswerPFrState extends State {
-  var im = AvatarState.image;
+  var im = AssetImage("assets/avatar/robot.png");
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
@@ -100,7 +99,7 @@ class AnswerNFr extends StatefulWidget {
 }
 
 class AnswerNFrState extends State {
-  var im = AvatarState.image;
+  var im = AssetImage("assets/avatar/robot.png");
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phN = [
@@ -186,7 +185,7 @@ class NoAnswerFr extends StatefulWidget {
 
 class NoAnswerFrState extends State {
   final form = GlobalKey<FormState>();
-  var im = AvatarState.image;
+  var im = AssetImage("assets/avatar/robot.png");
   Widget build(BuildContext context) {
     return MainScaffold(
       title: "Mikou-chan",

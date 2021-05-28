@@ -3,16 +3,15 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'avatar.dart';
 import 'main.dart';
 
-class QuestionPage extends StatefulWidget {
+class oldQuestionPage extends StatefulWidget {
   //classe des questions en français
-  QuestionPageState createState() => QuestionPageState();
+  oldQuestionPageState createState() => oldQuestionPageState();
 }
 
-class QuestionPageState extends State {
-  var im = AvatarState.image;
+class oldQuestionPageState extends State {
+  var im = AssetImage("assets/avatar/robot.png");
   int heure = DateTime.now().hour; //heure actuelle
   int i = (DateTime.now().weekday) - 1;
   //chaque jour correspond à un chiffre (lundi = 1, mardi = 2,...), i = le chiffre du jour actuel - 1
@@ -26,6 +25,7 @@ class QuestionPageState extends State {
     "Vous-êtes vous senti inquiet ou anxieux cette semaine ?"
   ]; //liste des questions
   List<String> repP = [
+    "Oui, merci.",
     "Oui, merci.",
     "Non, tout va bien.",
     "Au moins une fois.",

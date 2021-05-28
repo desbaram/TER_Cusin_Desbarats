@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 import 'main.dart';
 
-class Avatar extends StatefulWidget {
-  AvatarState createState() => AvatarState();
+class oldAvatar extends StatefulWidget {
+  oldAvatarState createState() => oldAvatarState();
 }
 
-class AvatarState extends State {
+class oldAvatarState extends State {
   static AssetImage image = AssetImage("assets/avatar/robot.png");
   Widget build(BuildContext context) {
     return MainScaffold(

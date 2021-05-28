@@ -5,6 +5,8 @@
     "menuName" : "Menu",
     "profileName" : "Profile",
     "parametersName" : "Settings",
+    "todaysDate" : "Today's date : ",
+    "questionAvailableAt11" : "The daily question will be available at 11AM.",
 
     "homePageHeader" : "Homepage",
     "questionPageHeader" : "Mikou-Chan",
@@ -12,12 +14,13 @@
     "parametersPageHeader" : "Settings",
     "languagePageHeader" : "Languages",
     "avatarPageHeader" : "Avatar",
+    "logPageHeader" : "Your log",
 
     "welcomeMessage" : "Hello! What would you like to do?",
     "answerMessage" : "Answer today's question",
     "accessLogMessage" : "Access the log",
 
-    "languageQuestion" : "What language would you like to us?",
+    "languageQuestion" : "What language would you like to use?",
     "avatarQuestion" : "Pick an avatar",
 
     "doNotWishToAnswer" : "I do not wish to answer this question.",

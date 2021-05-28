@@ -5,6 +5,8 @@
     "menuName" : "メニュー",
     "profileName" : "プロフィール",
     "parametersName" : "パラメーター",
+    "todaysDate" : "今日は",
+    "questionAvailableAt11" : "今日の質問は午前11時に利用可能になります。",
 
     "homePageHeader" : "ホームページ",
     "questionPageHeader" : "みこうちゃん",
@@ -12,6 +14,7 @@
     "parametersPageHeader" : "パラメーター",
     "languagePageHeader" : "言語",
     "avatarPageHeader" : "アバター",
+    "logPageHeader" : "ログ",
 
     "welcomeMessage" : "ようこそ！ 今日は何したい",
     "answerMessage" : "今日の質問に答える",

@@ -3,7 +3,6 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'avatar.dart';
 import 'main.dart';
 
 class Home extends StatefulWidget {
@@ -12,7 +11,8 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State {
-  var im = AvatarState.image;
+  //todo: mettre ça à jour selon la valeur globale
+  var im = AssetImage("assets/avatar/robot.png");
   int heure = DateTime.now().hour; //heure actuelle
 
   Widget build(BuildContext context) {

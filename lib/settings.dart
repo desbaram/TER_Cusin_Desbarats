@@ -5,11 +5,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'main.dart';
 
-class SettingsPage extends StatefulWidget {
-  SettingsPageState createState() => SettingsPageState();
+class oldSettingsPage extends StatefulWidget {
+  oldSettingsPageState createState() => oldSettingsPageState();
 }
 
-class SettingsPageState extends State {
+class oldSettingsPageState extends State {
   Widget build(BuildContext context) {
     return MainScaffold(
       title: AppLocalizations.of(context)!.parametersPageHeader,

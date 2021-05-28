@@ -2,7 +2,6 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 
-import 'avatar.dart';
 import 'main.dart';
 
 class AccountPage extends StatefulWidget {
@@ -10,7 +9,8 @@ class AccountPage extends StatefulWidget {
 }
 
 class AccountPageState extends State {
-  var im = AvatarState.image;
+  //todo: mettre ça à jour selon la valeur globale
+  AssetImage image = AssetImage("assets/avatar/robot.png");
   Widget build(BuildContext context) {
     return MainScaffold(
       title: "Compte",
@@ -29,7 +29,7 @@ class AccountPageState extends State {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   image: DecorationImage(
-                    image: im,
+                    image: image,
                     fit: BoxFit.fitWidth,
                   ),
                   borderRadius: BorderRadius.only(

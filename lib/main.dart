@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:compagnon_virtuel/pages/languageSettingPage.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,41 +8,56 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'account.dart';
 import 'answerFr.dart';
-import 'avatar.dart';
-import 'classes/language.dart';
-import 'home.dart';
-import 'journal.dart';
-import 'question.dart';
-import 'settings.dart';
+import 'pages/avatarPage.dart';
+//import 'home.dart';
+//import 'question.dart';
+import 'pages/homePage.dart';
+import 'pages/journalPage.dart';
+import 'pages/questionPage.dart';
+import 'pages/settingsPage.dart';
 
-void main() {
-  runApp(MaterialApp(home: MyApp()));
-}
+void main() => runApp(MyApp());
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
+const en = Locale('en', 'UK');
+const fr = Locale('fr', 'FR');
+const ja = Locale('ja', 'JA');
+var currentLocale = en;
 
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
-
-  static _MyAppState? of(BuildContext context) => context.findAncestorStateOfType<_MyAppState>();
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale;
-
-  void setLocale(Locale value) {
+  void refreshState() {
     setState(() {
-      _locale = value;
+      print("App state refreshed");
     });
   }
 
   Widget build(BuildContext context) {
-    _locale = Localizations.localeOf(context);
     return MaterialApp(
-      title: 'Mon compagnon virtuel',
-      locale: _locale,
       debugShowCheckedModeBanner: false,
+      title: 'Mon compagnon virtuel',
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+        accentColor: Colors.white,
+        //fontFamily : 'Name',
+        textTheme: TextTheme(
+          //gros text bleu gras
+          headline1: TextStyle(fontSize: 30, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
+          //gros text noir gras
+          headline2: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
+          //gros text noir italique
+          headline3:
+              TextStyle(fontSize: 30, color: Colors.black, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+          //petit texte bleu
+          bodyText1: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
+          //petit texte blanc
+          bodyText2: TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
+        ),
+      ),
       //Ce qui suit permet de gérer la localisation
       localizationsDelegates: [
         AppLocalizations.delegate,
@@ -57,119 +73,17 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         //routes pour naviguer entre les pages
-        '/': (context) => Home(),
+        '/': (context) => HomePage(refreshState),
         '/questionPage': (context) => QuestionPage(),
         '/positiveAnswerPage': (context) => AnswerPFr(),
         '/negativeAnswerPage': (context) => AnswerNFr(),
         '/noAnswerPage': (context) => NoAnswerFr(),
         '/accountPage': (context) => AccountPage(),
         '/settingsPage': (context) => SettingsPage(),
-        '/choicePage': (context) => ChoicePage(),
-        '/avatarPage': (context) => Avatar(),
+        '/languageSettingPage': (context) => LanguageSettingPage(),
+        '/avatarPage': (context) => AvatarPage(),
         '/journalPage': (context) => JournalPage(),
       },
-    );
-  }
-}
-
-class LanguageButton extends StatelessWidget {
-  void changeLanguage(Language? lang) {
-    Locale temp;
-    switch (lang!.languageCode) {
-      case 'ja':
-        temp = Locale(lang.languageCode, 'JA');
-        break;
-      case 'fr':
-        temp = Locale(lang.languageCode, 'FR');
-        break;
-      default:
-        temp = Locale(lang.languageCode, 'UK');
-    }
-    MyApp.of(mycontext)!.setLocale(temp);
-  }
-
-  late BuildContext mycontext; //I can do that to force it but it's not helping
-  Widget build(BuildContext context) {
-    mycontext = context; //and here's where I force it
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: DropdownButton(
-        underline: SizedBox(),
-        onChanged: changeLanguage,
-        icon: Icon(
-          Icons.language,
-          color: Colors.white,
-        ),
-        items: Language.languageList()
-            .map<DropdownMenuItem<Language>>((lang) => DropdownMenuItem(
-                value: lang,
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                  Text(
-                    lang.drapeau,
-                    style: new TextStyle(fontSize: 30),
-                  ),
-                  Text(lang.language),
-                ])))
-            .toList(),
-      ),
-    );
-  }
-}
-
-class DrawerMenu extends StatelessWidget {
-  //classe pour le menu français
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        children: <Widget>[
-          DrawerHeader(
-            //haut du menu
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Text(
-              AppLocalizations.of(context)!.menuName,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-              ),
-            ), //nom en haut du menu
-          ),
-          ListTile(
-            //première option du menu
-            leading: Icon(Icons.home), //son icône
-            title: Text(AppLocalizations.of(context)!.homeName), //son nom
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                '/',
-              ); //quand on appuie dessus, on est redirigé vers la route suivante
-            },
-          ),
-          ListTile(
-            //deuxième option du menu
-            leading: Icon(Icons.account_circle), //son icône
-            title: Text(AppLocalizations.of(context)!.profileName), //son nom
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                '/accountPage',
-              ); //quand on appuie dessus, on est redirigé vers la route suivante
-            },
-          ),
-          ListTile(
-            //troisième option du menu
-            leading: Icon(Icons.settings), //son icône
-            title: Text(AppLocalizations.of(context)!.parametersName), //son nom
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                '/settingsPage',
-              ); //quand on appuie dessus, on est redirigé vers la route suivante
-            },
-          ),
-        ],
-      ),
     );
   }
 }
@@ -184,7 +98,7 @@ class MainScaffold extends StatelessWidget {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
-        actions: [new LanguageButton()],
+        actions: [new LanguageButton(print)],
         title: Text(
           title,
         ),

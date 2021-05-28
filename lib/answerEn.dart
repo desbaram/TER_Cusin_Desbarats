@@ -1,8 +1,10 @@
 import 'dart:core';
-import 'package:flutter/material.dart';
+
 import 'package:date_format/date_format.dart';
-import 'main.dart';
+import 'package:flutter/material.dart';
+
 import 'avatar.dart';
+import 'main.dart';
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
@@ -11,7 +13,7 @@ class AnswerPEn extends StatefulWidget {
 }
 
 class AnswerPEnState extends State {
-  var im = AvatarEnState.image;
+  var im = AssetImage("assets/avatar/robot.png");
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phP = [
@@ -28,14 +30,12 @@ class AnswerPEnState extends State {
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(children: [
-            Text(
-                "If you wish, write a few words about yesterday's day in the journal.",
+            Text("If you wish, write a few words about yesterday's day in the journal.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
@@ -46,33 +46,31 @@ class AnswerPEnState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Type here to enter text',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Enter text before submit";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      child: Text('Submit'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          //récupération dans la base de données
-                        }
-                      },
-                    ),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Type here to enter text',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter text before submit";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  child: Text('Submit'),
+                  onPressed: () {
+                    if (form.currentState!.validate()) {
+                      //récupération dans la base de données
+                    }
+                  },
+                ),
+              ]),
             ),
             Expanded(
               child: Align(
@@ -117,14 +115,12 @@ class AnswerNEnState extends State {
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(children: [
-            Text(
-                "If you wish, write a few words about yesterday's day in the journal.",
+            Text("If you wish, write a few words about yesterday's day in the journal.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
@@ -135,33 +131,31 @@ class AnswerNEnState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Type here to enter text',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Enter text before submit";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      child: Text('Submit'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          //récupération dans la base de données
-                        }
-                      },
-                    ),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Type here to enter text',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter text before submit";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  child: Text('Submit'),
+                  onPressed: () {
+                    if (form.currentState!.validate()) {
+                      //récupération dans la base de données
+                    }
+                  },
+                ),
+              ]),
             ),
             Expanded(
               child: Align(
@@ -196,14 +190,12 @@ class NoAnswerEnState extends State {
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
           child: Column(children: [
-            Text(
-                "If you wish, write a few words about yesterday's day in the journal.",
+            Text("If you wish, write a few words about yesterday's day in the journal.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
@@ -214,33 +206,31 @@ class NoAnswerEnState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Type here to enter text',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Enter text before submit";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      child: Text('Submit'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          //récupération dans la base de données
-                        }
-                      },
-                    ),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Type here to enter text',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter text before submit";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  child: Text('Submit'),
+                  onPressed: () {
+                    if (form.currentState!.validate()) {
+                      //récupération dans la base de données
+                    }
+                  },
+                ),
+              ]),
             ),
             Expanded(
               child: Align(

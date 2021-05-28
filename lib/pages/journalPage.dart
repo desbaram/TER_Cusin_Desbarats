@@ -1,23 +1,22 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-import 'main.dart';
-
-class oldJournalPage extends StatefulWidget {
-  oldJournalPageState createState() => oldJournalPageState();
+class JournalPage extends StatefulWidget {
+  JournalPageState createState() => JournalPageState();
 }
 
-class oldJournalPageState extends State {
+class JournalPageState extends State {
   var selected, focused;
   Widget build(BuildContext context) {
-    return MainScaffold(
-      title: "Journal",
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.logPageHeader),
+      ),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.fill),
-        ),
+        margin: EdgeInsets.all(10.0),
         child: SfCalendar(
           view: CalendarView.month,
           firstDayOfWeek: 1,

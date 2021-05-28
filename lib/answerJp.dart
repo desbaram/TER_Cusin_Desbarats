@@ -1,8 +1,10 @@
 import 'dart:core';
-import 'package:flutter/material.dart';
+
 import 'package:date_format/date_format.dart';
-import 'main.dart';
+import 'package:flutter/material.dart';
+
 import 'avatar.dart';
+import 'main.dart';
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
@@ -11,7 +13,7 @@ class AnswerPJp extends StatefulWidget {
 }
 
 class AnswerPJpState extends State {
-  var im = AvatarJpState.image;
+  var im = AssetImage("assets/avatar/robot.png");
   final form = GlobalKey<FormState>();
   int i = (DateTime.now().weekday) - 1;
   List<String> phP = [
@@ -28,8 +30,7 @@ class AnswerPJpState extends State {
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
@@ -45,33 +46,31 @@ class AnswerPJpState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'ここに文字を入力してください',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "送信前の文字入力";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      child: Text('参加する'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          //récupération sans la base de données
-                        }
-                      },
-                    ),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'ここに文字を入力してください',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "送信前の文字入力";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  child: Text('参加する'),
+                  onPressed: () {
+                    if (form.currentState!.validate()) {
+                      //récupération sans la base de données
+                    }
+                  },
+                ),
+              ]),
             ),
             Expanded(
               child: Align(
@@ -116,8 +115,7 @@ class AnswerNJpState extends State {
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
@@ -133,33 +131,31 @@ class AnswerNJpState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'ここに文字を入力してください',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "送信前の文字入力";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      child: Text('参加する'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          //récupération dans la base de données
-                        }
-                      },
-                    ),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'ここに文字を入力してください',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "送信前の文字入力";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  child: Text('参加する'),
+                  onPressed: () {
+                    if (form.currentState!.validate()) {
+                      //récupération dans la base de données
+                    }
+                  },
+                ),
+              ]),
             ),
             Expanded(
               child: Align(
@@ -194,8 +190,7 @@ class NoAnswerJpState extends State {
       title: "Mikou-chan",
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 10.0),
@@ -211,33 +206,31 @@ class NoAnswerJpState extends State {
             ),
             Form(
               key: form,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'ここに文字を入力してください',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "送信前の文字入力";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      child: Text('参加する'),
-                      onPressed: () {
-                        if (form.currentState!.validate()) {
-                          //récupération dans la base de données
-                        }
-                      },
-                    ),
-                  ]),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'ここに文字を入力してください',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "送信前の文字入力";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  child: Text('参加する'),
+                  onPressed: () {
+                    if (form.currentState!.validate()) {
+                      //récupération dans la base de données
+                    }
+                  },
+                ),
+              ]),
             ),
             Expanded(
               child: Align(

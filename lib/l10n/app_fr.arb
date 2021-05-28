@@ -5,6 +5,8 @@
     "henuName" : "Menu",
     "profileName" : "Profil",
     "parametersName" : "Paramètres",
+    "todaysDate" : "Date du jour : ",
+    "questionAvailableAt11" : "La question du jour sera disponible à 11h.",
 
     "homePageHeader" : "Page d'acceuil",
     "questionPageHeader" : "Mikou-Chan",
@@ -12,6 +14,7 @@
     "parametersPageHeader" : "Paramètres",
     "languagePageHeader" : "Langues",
     "avatarPageHeader" : "Avatar",
+    "logPageHeader" : "Votre journal",
 
     "welcomeMessage" : "Bonjour! Que voulez-vous faire ?",
     "answerMessage" : "Répondre à la question du jour",
