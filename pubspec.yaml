@@ -24,6 +24,9 @@ dependencies:
   excel: ^2.0.0-null-safety-3
   intl: ^0.17.0
   date_format: ^2.0.2
+  devicelocale: ^0.4.1
+  flutter_spinkit: ^5.0.0
+
   flutter:
     sdk: flutter
 
@@ -64,6 +67,9 @@ flutter:
     - assets/avatar/dog.png
     - assets/avatar/ghost.png
     - assets/avatar/robot.png
+    - assets/flags/fr_flag.png
+    - assets/flags/ja_flag.png
+    - assets/flags/uk_flag.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

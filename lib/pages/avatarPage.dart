@@ -12,13 +12,18 @@ class AvatarPageState extends State {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.avatarPageHeader)),
+      appBar: AppBar(
+          title: Text(
+        AppLocalizations.of(context)!.avatarPageHeader,
+        textAlign: TextAlign.center,
+      )),
       body: Container(
         margin: EdgeInsets.all(20),
         child: Column(
           children: [
             Text(
               AppLocalizations.of(context)!.avatarQuestion,
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headline1,
             ),
             SizedBox(

@@ -222,6 +222,17 @@ class _LanguageButtonState extends State<LanguageButton> {
   }
 
   Widget build(BuildContext context) {
+    ImageIcon buttonIcon;
+    switch (currentLocale.languageCode) {
+      case 'ja':
+        buttonIcon = ImageIcon(AssetImage("assets/flags/ja_flag.png"), color: null);
+        break;
+      case 'fr':
+        buttonIcon = ImageIcon(AssetImage("assets/flags/fr_flag.png"), color: null);
+        break;
+      default:
+        buttonIcon = ImageIcon(AssetImage("assets/flags/uk_flag.png"));
+    }
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: DropdownButton(
