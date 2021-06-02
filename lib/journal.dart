@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:syncfusion_localizations/syncfusion_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+>>>>>>> 320283d (2nd changes to git test)
 import 'dart:core';
 
 import 'package:flutter/material.dart';
