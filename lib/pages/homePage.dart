@@ -5,13 +5,8 @@ import 'package:compagnon_virtuel/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-//import '../main.dart';
 
 class HomePage extends StatefulWidget {
-  final Function refreshApp;
-
-  HomePage(@required this.refreshApp);
-
   HomePageState createState() => HomePageState();
 }
 
@@ -34,7 +29,7 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.homePageHeader),
         actions: [
-          LanguageButton(widget.refreshApp),
+          LanguageButton(),
         ],
       ),
       drawer: DrawerMenu(),
@@ -188,8 +183,6 @@ class DrawerMenu extends StatelessWidget {
 }
 
 class LanguageButton extends StatefulWidget {
-  Function refreshApp;
-  LanguageButton(@required this.refreshApp);
   @override
   _LanguageButtonState createState() => _LanguageButtonState();
 }
@@ -198,27 +191,20 @@ class _LanguageButtonState extends State<LanguageButton> {
   void _changeLanguage(String languageCode) {
     switch (languageCode) {
       case 'fr':
-        setState(() {
-          currentLocale = fr;
-        });
+        MyApp.setLocale(context, fr);
         print("Switch en français");
         break;
       case 'en':
-        setState(() {
-          currentLocale = en;
-        });
+        MyApp.setLocale(context, en);
         print("Switch en anglais");
         break;
       case 'ja':
-        setState(() {
-          currentLocale = ja;
-        });
+        MyApp.setLocale(context, ja);
         print("Switch en japonais");
         break;
       default:
         print("Unknown language, no switching");
     }
-    widget.refreshApp();
   }
 
   Widget build(BuildContext context) {

@@ -9,11 +9,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'account.dart';
+//import 'account.dart';
 import 'answerFr.dart';
-import 'pages/avatarPage.dart';
 //import 'home.dart';
 //import 'question.dart';
+import 'pages/accountPage.dart';
+import 'pages/avatarPage.dart';
 import 'pages/homePage.dart';
 import 'pages/journalPage.dart';
 import 'pages/questionPage.dart';
@@ -31,19 +32,30 @@ bool localInit = false;
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
+
+  static void setLocale(BuildContext context, Locale newLocale) async {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state!.changeLanguage(newLocale);
+  }
 }
 
 class _MyAppState extends State<MyApp> {
-  Future<int> getLoc() async {
+  void changeLanguage(Locale newLocale) {
+    setState(() {
+      currentLocale = newLocale;
+    });
+  }
+
+  Future<int> initLoc() async {
     Locale res;
-    String? test;
+    String? localeCode;
     try {
-      test = await Devicelocale.currentLocale;
+      localeCode = await Devicelocale.currentLocale;
     } on PlatformException {
       print("Error obtaining current locale");
     }
 
-    switch (test) {
+    switch (localeCode) {
       case 'fr':
         res = fr;
         break;
@@ -53,16 +65,11 @@ class _MyAppState extends State<MyApp> {
       default:
         res = en;
     }
-    localInit = true;
+    //changeLanguage(res);
     currentLocale = res;
+    localInit = true;
     await new Future.delayed(new Duration(milliseconds: 1500));
     return 1;
-  }
-
-  void refreshState() {
-    setState(() {
-      print("App state refreshed");
-    });
   }
 
   Widget build(BuildContext context) {
@@ -103,7 +110,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         //routes pour naviguer entre les pages
-        '/': (context) => HomePage(refreshState),
+        '/': (context) => HomePage(),
         '/questionPage': (context) => QuestionPage(),
         '/positiveAnswerPage': (context) => AnswerPFr(),
         '/negativeAnswerPage': (context) => AnswerNFr(),
@@ -118,7 +125,7 @@ class _MyAppState extends State<MyApp> {
 
     /*
     return FutureBuilder(
-        future: getLoc(),
+        future: initLoc(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -174,7 +181,7 @@ class _MyAppState extends State<MyApp> {
                   initialRoute: '/',
                   routes: {
                     //routes pour naviguer entre les pages
-                    '/': (context) => HomePage(refreshState),
+                    '/': (context) => HomePage(),
                     '/questionPage': (context) => QuestionPage(),
                     '/positiveAnswerPage': (context) => AnswerPFr(),
                     '/negativeAnswerPage': (context) => AnswerNFr(),
@@ -203,9 +210,9 @@ class MainScaffold extends StatelessWidget {
   MainScaffold({required this.body, required this.title});
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.blue,
-        actions: [new LanguageButton(print)],
+        actions: [LanguageButton()],
         title: Text(
           title,
         ),
