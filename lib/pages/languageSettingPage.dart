@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:compagnon_virtuel/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -58,6 +59,16 @@ class languageSwitchOutlinedButton extends StatelessWidget {
       ),
       onPressed: () {
         print("Donc la on change la langue vers ${languageCode}");
+        switch (languageCode) {
+          case 'ja':
+            MyApp.setLocale(context, ja);
+            break;
+          case 'fr':
+            MyApp.setLocale(context, fr);
+            break;
+          default:
+            MyApp.setLocale(context, en);
+        }
       },
       style: OutlinedButton.styleFrom(
         backgroundColor: Colors.white,

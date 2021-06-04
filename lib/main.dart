@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 //import 'account.dart';
 import 'answerFr.dart';
@@ -40,6 +41,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  late Future<int> _loc;
+
   void changeLanguage(Locale newLocale) {
     setState(() {
       currentLocale = newLocale;
@@ -72,60 +75,15 @@ class _MyAppState extends State<MyApp> {
     return 1;
   }
 
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: currentLocale,
-      debugShowCheckedModeBanner: false,
-      title: 'Mon compagnon virtuel',
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-        accentColor: Colors.white,
-        //fontFamily : 'Name',
-        textTheme: TextTheme(
-          //gros text bleu gras
-          headline1: TextStyle(fontSize: 30, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
-          //gros text noir gras
-          headline2: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
-          //gros text noir italique
-          headline3:
-              TextStyle(fontSize: 30, color: Colors.black, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
-          //petit texte bleu
-          bodyText1: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
-          //petit texte blanc
-          bodyText2: TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
-        ),
-      ),
-      //Ce qui suit permet de gérer la localisation
-      localizationsDelegates: [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale('en', 'UK'),
-        const Locale('fr', 'FR'),
-        const Locale('ja', 'JP'),
-      ],
-      initialRoute: '/',
-      routes: {
-        //routes pour naviguer entre les pages
-        '/': (context) => HomePage(),
-        '/questionPage': (context) => QuestionPage(),
-        '/positiveAnswerPage': (context) => AnswerPFr(),
-        '/negativeAnswerPage': (context) => AnswerNFr(),
-        '/noAnswerPage': (context) => NoAnswerFr(),
-        '/accountPage': (context) => AccountPage(),
-        '/settingsPage': (context) => SettingsPage(),
-        '/languageSettingPage': (context) => LanguageSettingPage(),
-        '/avatarPage': (context) => AvatarPage(),
-        '/journalPage': (context) => JournalPage(),
-      },
-    );
+  @override
+  void initState() {
+    super.initState();
+    _loc = initLoc();
+  }
 
-    /*
+  Widget build(BuildContext context) {
     return FutureBuilder(
-        future: initLoc(),
+        future: _loc,
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -198,7 +156,6 @@ class _MyAppState extends State<MyApp> {
               return Text("hello");
           }
         });
-     */
   }
 }
 

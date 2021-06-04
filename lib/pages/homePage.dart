@@ -217,7 +217,7 @@ class _LanguageButtonState extends State<LanguageButton> {
         buttonIcon = ImageIcon(AssetImage("assets/flags/fr_flag.png"), color: null);
         break;
       default:
-        buttonIcon = ImageIcon(AssetImage("assets/flags/uk_flag.png"));
+        buttonIcon = ImageIcon(AssetImage("assets/flags/uk_flag.png"), color: null);
     }
     return Padding(
       padding: const EdgeInsets.all(8.0),
