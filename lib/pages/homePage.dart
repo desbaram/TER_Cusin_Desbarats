@@ -27,12 +27,22 @@ class HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           AppLocalizations.of(context)!.homePageHeader,
           textAlign: TextAlign.center,
         ),
         actions: [
           LanguageButton(),
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {
+                heure = DateTime.now().hour;
+                date = DateFormat("dd MM yyyy").format(DateTime.now());
+              });
+            },
+          ),
         ],
       ),
       drawer: DrawerMenu(),
@@ -40,8 +50,6 @@ class HomePageState extends State<HomePage> {
         margin: EdgeInsets.all(10),
         child: Center(
           child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 alignment: Alignment.center,
@@ -103,6 +111,19 @@ class HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class refreshButton extends StatelessWidget {
+  late Function updateCall;
+
+  refreshButton(updateCall);
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(Icons.refresh),
+      onPressed: updateCall(),
     );
   }
 }
@@ -223,18 +244,18 @@ class _LanguageButtonState extends State<LanguageButton> {
         buttonIcon = AssetImage("assets/flags/uk_flag.png");
     }
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
+      padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
       child: DropdownButton(
         onChanged: (Language? lang) {
           lang == null ? print("Null language error") : _changeLanguage(lang.languageCode);
         },
         underline: SizedBox(),
         icon: CircleAvatar(
-          radius: 22,
-          backgroundColor: Colors.blueGrey,
+          radius: 18,
+          backgroundColor: Theme.of(context).accentColor,
           child: CircleAvatar(
             backgroundImage: buttonIcon,
-            radius: 18,
+            radius: 16,
           ),
         ),
         items: Language.languageList()
