@@ -27,7 +27,10 @@ class HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.homePageHeader),
+        title: Text(
+          AppLocalizations.of(context)!.homePageHeader,
+          textAlign: TextAlign.center,
+        ),
         actions: [
           LanguageButton(),
         ],
@@ -208,25 +211,32 @@ class _LanguageButtonState extends State<LanguageButton> {
   }
 
   Widget build(BuildContext context) {
-    Image buttonIcon;
+    AssetImage buttonIcon;
     switch (currentLocale.languageCode) {
       case 'ja':
-        buttonIcon = Image.asset("assets/flags/ja_flag.png", color: null);
+        buttonIcon = AssetImage("assets/flags/ja_flag.png");
         break;
       case 'fr':
-        buttonIcon = Image.asset("assets/flags/fr_flag.png", color: null);
+        buttonIcon = AssetImage("assets/flags/fr_flag.png");
         break;
       default:
-        buttonIcon = Image.asset("assets/flags/uk_flag.png", color: null);
+        buttonIcon = AssetImage("assets/flags/uk_flag.png");
     }
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
       child: DropdownButton(
         onChanged: (Language? lang) {
           lang == null ? print("Null language error") : _changeLanguage(lang.languageCode);
         },
         underline: SizedBox(),
-        icon: buttonIcon,
+        icon: CircleAvatar(
+          radius: 22,
+          backgroundColor: Colors.blueGrey,
+          child: CircleAvatar(
+            backgroundImage: buttonIcon,
+            radius: 18,
+          ),
+        ),
         items: Language.languageList()
             .map<DropdownMenuItem<Language>>((lang) => DropdownMenuItem(
                 value: lang,
