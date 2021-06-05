@@ -208,16 +208,16 @@ class _LanguageButtonState extends State<LanguageButton> {
   }
 
   Widget build(BuildContext context) {
-    ImageIcon buttonIcon;
+    Image buttonIcon;
     switch (currentLocale.languageCode) {
       case 'ja':
-        buttonIcon = ImageIcon(AssetImage("assets/flags/ja_flag.png"), color: null);
+        buttonIcon = Image.asset("assets/flags/ja_flag.png", color: null);
         break;
       case 'fr':
-        buttonIcon = ImageIcon(AssetImage("assets/flags/fr_flag.png"), color: null);
+        buttonIcon = Image.asset("assets/flags/fr_flag.png", color: null);
         break;
       default:
-        buttonIcon = ImageIcon(AssetImage("assets/flags/uk_flag.png"), color: null);
+        buttonIcon = Image.asset("assets/flags/uk_flag.png", color: null);
     }
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -226,10 +226,7 @@ class _LanguageButtonState extends State<LanguageButton> {
           lang == null ? print("Null language error") : _changeLanguage(lang.languageCode);
         },
         underline: SizedBox(),
-        icon: Icon(
-          Icons.language,
-          color: Colors.white,
-        ),
+        icon: buttonIcon,
         items: Language.languageList()
             .map<DropdownMenuItem<Language>>((lang) => DropdownMenuItem(
                 value: lang,
