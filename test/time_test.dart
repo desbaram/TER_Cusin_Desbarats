@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:compagnon_virtuel/home.dart';
-import 'package:compagnon_virtuel/pages/homePage.dart';
+import 'package:compagnon_virtuel/pages/homepage.dart';
 
 import 'package:compagnon_virtuel/main.dart';
 

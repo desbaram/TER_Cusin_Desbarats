@@ -1,0 +1,83 @@
+{
+    "en": [
+        {
+            "@@locale": "en",
+            "helloWorld": "Hello World!",
+            "homeName": "Homepage",
+            "menuName": "Menu",
+            "profileName": "Profile",
+            "parametersName": "Settings",
+            "todaysDate": "Today's date : ",
+            "questionAvailableAt11": "The daily question will be available at 11AM.",
+            "homePageHeader": "Homepage",
+            "questionPageHeader": "Mikou-Chan",
+            "profilePageHeader": "My Profile",
+            "parametersPageHeader": "Settings",
+            "languagePageHeader": "Languages",
+            "avatarPageHeader": "Avatar",
+            "logPageHeader": "Your log",
+            "welcomeMessage": "Hello! What would you like to do?",
+            "answerMessage": "Answer today's question",
+            "accessLogMessage": "Access the log",
+            "languageQuestion": "What language would you like to use?",
+            "avatarQuestion": "Pick an avatar",
+            "doNotWishToAnswer": "I do not wish to answer this question.",
+            "languageOption": "Languages",
+            "avatarOption": "Avatar"
+        }
+    ],
+    "fr": [
+        {
+            "@@locale": "fr",
+            "helloWorld": "Bonjour Monde!",
+            "homeName": "Page d'acceuil",
+            "henuName": "Menu",
+            "profileName": "Profil",
+            "parametersName": "Paramètres",
+            "todaysDate": "Date du jour : ",
+            "questionAvailableAt11": "La question du jour sera disponible à 11h.",
+            "homePageHeader": "Page d'acceuil",
+            "questionPageHeader": "Mikou-Chan",
+            "profilePageHeader": "Mon Compte",
+            "parametersPageHeader": "Paramètres",
+            "languagePageHeader": "Langues",
+            "avatarPageHeader": "Avatar",
+            "logPageHeader": "Votre journal",
+            "welcomeMessage": "Bonjour! Que voulez-vous faire ?",
+            "answerMessage": "Répondre à la question du jour",
+            "accessLogMessage": "Accéder à mon journal",
+            "languageQuestion": "Quelle langue souhaitez-vous utiliser ?",
+            "avatarQuestion": "Choisissez un avatar",
+            "doNotWishToAnswer": "Je ne souhaite pas répondre à cette question.",
+            "languageOption": "Langues",
+            "avatarOption": "Avatar"
+        }
+    ],
+    "ja": [
+        {
+            "@@locale": "ja",
+            "helloWorld": "こんにちは世界",
+            "homeName": "ホームページ",
+            "menuName": "メニュー",
+            "profileName": "プロフィール",
+            "parametersName": "パラメーター",
+            "todaysDate": "今日は",
+            "questionAvailableAt11": "今日の質問は午前11時に利用可能になります。",
+            "homePageHeader": "ホームページ",
+            "questionPageHeader": "みこうちゃん",
+            "profilePageHeader": "プロフィール",
+            "parametersPageHeader": "パラメーター",
+            "languagePageHeader": "言語",
+            "avatarPageHeader": "アバター",
+            "logPageHeader": "ログ",
+            "welcomeMessage": "ようこそ！ 今日は何したい",
+            "answerMessage": "今日の質問に答える",
+            "accessLogMessage": "ログにアクセスする",
+            "languageQuestion": "言語を選択してください",
+            "avatarQuestion": "アバターを選択してください",
+            "doNotWishToAnswer": "この質問に答えたくありません.",
+            "languageOption": "言語",
+            "avatarOption": "アバター"
+        }
+    ]
+}
