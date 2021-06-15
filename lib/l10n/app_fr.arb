@@ -15,16 +15,37 @@
     "languagePageHeader" : "Langues",
     "avatarPageHeader" : "Avatar",
     "logPageHeader" : "Votre journal",
+    "textSizePageHeader" : "Réglage de taille du texte",
+    "pageBlancheHeader" : "Exprimez-vous",
+    "thankYouPageHeader" : "Merci !",
 
     "welcomeMessage" : "Bonjour! Que voulez-vous faire ?",
     "answerMessage" : "Répondre à la question du jour",
     "accessLogMessage" : "Accéder à mon journal",
+    "adjustTextSizeMessage" : "Faites glisser pour ajuster la taille du texte",
 
     "languageQuestion" : "Quelle langue souhaitez-vous utiliser ?",
     "avatarQuestion" : "Choisissez un avatar",
 
-    "doNotWishToAnswer" : "Je ne souhaite pas répondre à cette question.",
+    "doNotWishToAnswerQuestion" : "Je ne souhaite pas répondre à cette question.",
+
+    "applyButton" : "Appliquer",
+    "resetButton" : "Réinitialiser",
+    "submitButton" : "Valider",
+    "homeButton" : "Retourner à la page d'acceuil",
+    "doNotWishToAnswerExpress" : "Je ne souhaite pas répondre",
+
+    "bigTextExample" : "Exemple de gros texte",
+    "smallTextExample" : "Exemple de texte normal",
 
     "languageOption" : "Langues",
-    "avatarOption" : "Avatar"
+    "avatarOption" : "Avatar",
+    "textSizeOption" : "Taille du texte",
+
+    "negativeMessageBegin" : "Désolé d'apprendre ça.",
+    "positiveMessageBegin" : "Super !",
+    "writeHere" : "Écrivez ici",
+    "howAreYouFeeling" : "Voudriez-vous m'en dire plus sur votre santé aujourd'hui ?",
+
+    "thankYouMessage" : "Merci d'avoir répondu à la question du jour !"
 }

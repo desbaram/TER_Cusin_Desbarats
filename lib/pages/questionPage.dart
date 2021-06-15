@@ -74,7 +74,7 @@ class QuestionPageState extends State {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    print("goto positive response");
+                    Navigator.pushNamed(context, '/pageBlanchePagePositive');
                   },
                   child: Text(
                     repP[i],
@@ -87,6 +87,7 @@ class QuestionPageState extends State {
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    Navigator.pushNamed(context, '/pageBlanchePageNegative');
                     print("goto negative response");
                   },
                   child: Text(
@@ -100,10 +101,11 @@ class QuestionPageState extends State {
                 ),
                 ElevatedButton(
                     onPressed: () {
+                      Navigator.pushNamed(context, '/pageBlanchePageNeutral');
                       print("goto donotwishtoanswer response");
                     },
                     child: Text(
-                      AppLocalizations.of(context)!.doNotWishToAnswer,
+                      AppLocalizations.of(context)!.doNotWishToAnswerQuestion,
                       textAlign: TextAlign.center,
                       style: myTextStyle,
                     ))

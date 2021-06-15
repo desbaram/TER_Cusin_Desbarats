@@ -25,6 +25,10 @@ class SettingsPageState extends State {
               height: 20,
             ),
             myOutlinedButton(AppLocalizations.of(context)!.avatarOption, '/avatarPage'),
+            SizedBox(
+              height: 20,
+            ),
+            myOutlinedButton(AppLocalizations.of(context)!.textSizeOption, '/textSizePage'),
           ],
         ),
       ),

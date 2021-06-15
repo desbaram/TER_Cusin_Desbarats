@@ -15,16 +15,40 @@
     "languagePageHeader" : "Languages",
     "avatarPageHeader" : "Avatar",
     "logPageHeader" : "Your log",
+    "textSizePageHeader" : "Text size setting",
+    "pageBlancheHeader" : "Express Yourself",
+    "thankYouPageHeader" : "Thank you !",
 
     "welcomeMessage" : "Hello! What would you like to do?",
     "answerMessage" : "Answer today's question",
     "accessLogMessage" : "Access the log",
+    "adjustTextSizeMessage" : "Slide to adjust text size",
 
     "languageQuestion" : "What language would you like to use?",
     "avatarQuestion" : "Pick an avatar",
 
-    "doNotWishToAnswer" : "I do not wish to answer this question.",
+    "doNotWishToAnswerQuestion" : "I do not wish to answer this question.",
+
+     "applyButton" : "Apply",
+     "resetButton" : "Reset",
+     "submitButton" : "Submit",
+     "homeButton" : "Go back to home page",
+     "doNotWishToAnswerExpress" : "I do not wish to answer",
+
+
+     "bigTextExample" : "Big text example",
+     "smallTextExample" : "Small text example",
 
     "languageOption" : "Languages",
-    "avatarOption" : "Avatar"
+    "avatarOption" : "Avatar",
+    "textSizeOption" : "Text size",
+
+    "negativeMessageBegin" : "We're sorry to hear about that.",
+    "positiveMessageBegin" : "Great !",
+    "writeHere" : "Write here",
+    "howAreYouFeeling" : "Would you like to tell me more about how you're feeling today ?",
+
+    "thankYouMessage" : "Thank you for answering the question of the day !"
+
+
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:core';
 
 import 'package:compagnon_virtuel/pages/languageSettingPage.dart';
+import 'package:compagnon_virtuel/pages/thankYouPage.dart';
 import 'package:date_format/date_format.dart';
 import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 //import 'account.dart';
 import 'answerFr.dart';
@@ -18,17 +20,33 @@ import 'pages/accountPage.dart';
 import 'pages/avatarPage.dart';
 import 'pages/homePage.dart';
 import 'pages/journalPage.dart';
+import 'pages/pageBlanchePage.dart';
 import 'pages/questionPage.dart';
 import 'pages/settingsPage.dart';
+import 'pages/textSizePage.dart';
 
 void main() => runApp(MyApp());
 
 final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
+//Ci-dessous les 3 langues partagées qu'on utilise pour switch de languages
 const en = Locale('en', 'UK');
 const fr = Locale('fr', 'FR');
 const ja = Locale('ja', 'JA');
+
+//Ci-dessous le nom des variables partagées dans Shared Preferences
+const String TxtSizePrefsName = 'TextSizeMod';
+const String AvatarPrefsName = 'Avatar';
+const String PreferredLocalePrefsName = 'Locale';
+
+//Ci-dessous les constantes de tailles de textes
+const double titleSize = 30;
+const double normalSize = 20;
+
+//Initiating those variables
 var currentLocale = en;
-bool localInit = false;
+double textSizePrefs = 1;
+String avatarPrefs = 'dog';
+String preferredLocalePrefs = 'NA';
 
 class MyApp extends StatefulWidget {
   @override
@@ -38,24 +56,91 @@ class MyApp extends StatefulWidget {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
     state!.changeLanguage(newLocale);
   }
+
+  static void changeAvatar(BuildContext context, String newAvatar) async {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    final SharedPreferences _prefs = await state!.prefs;
+
+    _prefs.setString(AvatarPrefsName, newAvatar);
+    avatarPrefs = newAvatar;
+  }
+
+  static void changeTextSize(BuildContext context, double newTextSize) async {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    final SharedPreferences _prefs = await state!.prefs;
+
+    _prefs.setDouble(TxtSizePrefsName, newTextSize);
+    textSizePrefs = newTextSize;
+  }
 }
 
 class _MyAppState extends State<MyApp> {
   late Future<int> _loc;
+  Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+
+  void updateLocalePrefs(String newLocaleCode) async {
+    final SharedPreferences MyPrefs = await prefs;
+    MyPrefs.setString(PreferredLocalePrefsName, newLocaleCode);
+    preferredLocalePrefs = newLocaleCode;
+    setState(() {});
+  }
+
+  void updateTextSizePrefs(double newTextSize) async {
+    final SharedPreferences MyPrefs = await prefs;
+    MyPrefs.setDouble(TxtSizePrefsName, newTextSize);
+    setState(() {
+      textSizePrefs = newTextSize;
+    });
+  }
 
   void changeLanguage(Locale newLocale) {
+    updateLocalePrefs(newLocale.languageCode);
     setState(() {
       currentLocale = newLocale;
     });
   }
 
+  Future<bool> initializeSettings() async {
+    final SharedPreferences myPrefs = await prefs;
+
+    double? testTxt = myPrefs.getDouble(TxtSizePrefsName);
+    if (testTxt == null) {
+      myPrefs.setDouble(TxtSizePrefsName, 1.0);
+      textSizePrefs = 1;
+    } else {
+      textSizePrefs = testTxt;
+    }
+
+    String? testAvatar = myPrefs.getString(AvatarPrefsName);
+    if (testAvatar == null) {
+      myPrefs.setString(AvatarPrefsName, 'dog');
+      avatarPrefs = 'dog';
+    } else {
+      avatarPrefs = testAvatar;
+    }
+
+    String? testLocale = myPrefs.getString(PreferredLocalePrefsName);
+    if (testLocale != null) {
+      preferredLocalePrefs = testLocale;
+      return true;
+    }
+    return false; //On return si oui ou non on a une préference en terme langue
+  }
+
   Future<int> initLoc() async {
     Locale res;
     String? localeCode;
+
     try {
       localeCode = await Devicelocale.currentLocale;
     } on PlatformException {
-      print("Error obtaining current locale");
+      //print("Error obtaining current locale");
+      throw new ErrorSummary("Error obtaining current locale");
+    }
+
+    bool hasPrefsLocale = await initializeSettings();
+    if (hasPrefsLocale) {
+      localeCode = preferredLocalePrefs;
     }
 
     switch (localeCode) {
@@ -68,9 +153,7 @@ class _MyAppState extends State<MyApp> {
       default:
         res = en;
     }
-    //changeLanguage(res);
     currentLocale = res;
-    localInit = true;
     await new Future.delayed(new Duration(milliseconds: 1500));
     return 1;
   }
@@ -111,17 +194,39 @@ class _MyAppState extends State<MyApp> {
                     //fontFamily : 'Name',
                     textTheme: TextTheme(
                       //gros text bleu gras
-                      headline1:
-                          TextStyle(fontSize: 30, color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
+                      headline1: TextStyle(
+                        fontSize: 30 * textSizePrefs,
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
                       //gros text noir gras
-                      headline2: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
+                      headline2: TextStyle(
+                        fontSize: 30 * textSizePrefs,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                       //gros text noir italique
                       headline3: TextStyle(
-                          fontSize: 30, color: Colors.black, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+                        fontSize: 30 * textSizePrefs,
+                        color: Colors.black,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                      ),
                       //petit texte bleu
-                      bodyText1: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
+                      bodyText1: TextStyle(
+                        fontSize: 20 * textSizePrefs,
+                        color: Theme.of(context).primaryColor,
+                      ),
                       //petit texte blanc
-                      bodyText2: TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
+                      bodyText2: TextStyle(
+                        fontSize: 20 * textSizePrefs,
+                        color: Colors.blue,
+                      ),
+                      //not a headline
+                      headline4: TextStyle(
+                        fontSize: 20 * textSizePrefs,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   //Ce qui suit permet de gérer la localisation
@@ -149,6 +254,11 @@ class _MyAppState extends State<MyApp> {
                     '/languageSettingPage': (context) => LanguageSettingPage(),
                     '/avatarPage': (context) => AvatarPage(),
                     '/journalPage': (context) => JournalPage(),
+                    '/textSizePage': (context) => textSizePage(),
+                    '/pageBlanchePagePositive': (context) => pageBlanchePage(1),
+                    '/pageBlanchePageNegative': (context) => pageBlanchePage(0),
+                    '/pageBlanchePageNeutral': (context) => pageBlanchePage(2),
+                    '/thankYouPage': (context) => thankYouPage(),
                   },
                 );
               }
@@ -159,6 +269,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+//classe caduque a supprimer pour la mise au propre
 class MainScaffold extends StatelessWidget {
   //classe pour l'apparance des pages en français
   final Widget body; //le body est défini dans les classes de chaque page

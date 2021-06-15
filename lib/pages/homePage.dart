@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:math';
 
 import 'package:compagnon_virtuel/classes/language.dart';
 import 'package:compagnon_virtuel/main.dart';
@@ -19,18 +20,19 @@ class HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     //todo: scale fontSize depending on system parameters
-    final TextStyle myTextStyle = TextStyle(color: Colors.white, fontSize: 20);
     final ButtonStyle style = ElevatedButton.styleFrom(
       primary: Colors.blue,
-      textStyle: myTextStyle,
+      textStyle: TextStyle(
+        fontSize: min(normalSize * textSizePrefs, 40),
+        color: Colors.white,
+      ),
     );
 
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: Text(
           AppLocalizations.of(context)!.homePageHeader,
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
         ),
         actions: [
           LanguageButton(),
@@ -59,18 +61,24 @@ class HomePageState extends State<HomePage> {
                 ),
                 child: Text(
                   "${AppLocalizations.of(context)!.todaysDate} ${date}",
-                  style: myTextStyle,
+                  style: TextStyle(
+                    fontSize: min(normalSize * textSizePrefs, 30),
+                    color: Colors.white,
+                  ),
                 ),
               ),
               SizedBox(
                 height: 80,
               ),
-              Text(AppLocalizations.of(context)!.welcomeMessage,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                  )),
+              Text(
+                AppLocalizations.of(context)!.welcomeMessage,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: min(titleSize * textSizePrefs, 80),
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               SizedBox(
                 height: 80,
               ),
@@ -128,10 +136,20 @@ class refreshButton extends StatelessWidget {
   }
 }
 
-class DrawerMenu extends StatelessWidget {
+class DrawerMenu extends StatefulWidget {
   //classe pour le menu français
+  @override
+  DrawerMenuState createState() => DrawerMenuState();
+}
+
+class DrawerMenuState extends State<DrawerMenu> {
+  void refresh() {
+    setState(() {});
+  }
+
   Widget build(BuildContext context) {
-    final TextStyle myTextStyle = TextStyle(color: Colors.white, fontSize: 20);
+    //final TextStyle myTextStyle = TextStyle(color: Colors.white, fontSize: 20);
+    AssetImage profilePic = AssetImage('assets/avatar/${avatarPrefs}.png');
 
     return Drawer(
       child: Container(
@@ -139,10 +157,13 @@ class DrawerMenu extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-              child: Container(
-                height: 100,
-                //todo: mettre l'avatar ici
-                child: CircleAvatar(),
+              child: CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.blue[800],
+                child: CircleAvatar(
+                  radius: 65,
+                  backgroundImage: profilePic,
+                ),
               ),
             ),
             ListTile(
@@ -153,7 +174,10 @@ class DrawerMenu extends StatelessWidget {
               ),
               title: Text(
                 AppLocalizations.of(context)!.homeName,
-                style: myTextStyle,
+                style: TextStyle(
+                  fontSize: min(normalSize * textSizePrefs, 30),
+                  color: Colors.white,
+                ),
               ), //son nom
               onTap: () {
                 Navigator.pop(context);
@@ -171,7 +195,10 @@ class DrawerMenu extends StatelessWidget {
               ), //son icône
               title: Text(
                 AppLocalizations.of(context)!.profileName,
-                style: myTextStyle,
+                style: TextStyle(
+                  fontSize: min(normalSize * textSizePrefs, 30),
+                  color: Colors.white,
+                ),
               ), //son nom
               onTap: () {
                 Navigator.pop(context);
@@ -189,7 +216,10 @@ class DrawerMenu extends StatelessWidget {
               ), //son icône
               title: Text(
                 AppLocalizations.of(context)!.parametersName,
-                style: myTextStyle,
+                style: TextStyle(
+                  fontSize: min(normalSize * textSizePrefs, 30),
+                  color: Colors.white,
+                ),
               ), //son nom
               onTap: () {
                 Navigator.pop(context);

@@ -15,16 +15,37 @@
     "languagePageHeader" : "言語",
     "avatarPageHeader" : "アバター",
     "logPageHeader" : "ログ",
+    "textSizePageHeader" : "文字サイズ",
+    "pageBlancheHeader" : "自分を表現してください",
+    "thankYouPageHeader" : "ありがとうございました",
 
     "welcomeMessage" : "ようこそ！ 今日は何したい",
     "answerMessage" : "今日の質問に答える",
     "accessLogMessage" : "ログにアクセスする",
+    "adjustTextSizeMessage" : "スライドして文字サイズを調整",
 
     "languageQuestion" : "言語を選択してください",
     "avatarQuestion" : "アバターを選択してください",
 
-    "doNotWishToAnswer" : "この質問に答えたくありません.",
+    "doNotWishToAnswerQuestion" : "この質問に答えたくありません.",
+
+    "applyButton" : "変更を適用",
+    "resetButton" : "リセット",
+    "submitButton" : "送信する",
+    "homeButton" : "ホームページに戻る",
+    "doNotWishToAnswerExpress" : "答えたくない。",
+
+    "bigTextExample" : "大きなテキストの例",
+    "smallTextExample" : "小さなテキストの例",
 
     "languageOption" : "言語",
-    "avatarOption" : "アバター"
+    "avatarOption" : "アバター",
+    "textSizeOption" : "文字サイズ",
+
+    "negativeMessageBegin" : "ご不便をおかけして申し訳ございません。",
+    "positiveMessageBegin" : "すごい！",
+    "writeHere" : "ここに書いてください",
+    "howAreYouFeeling" : "今日の気分についてもっと教えていただけますか？",
+
+    "thankYouMessage" : "今日の質問に答えてくれてありがとう！"
 }
