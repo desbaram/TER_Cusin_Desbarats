@@ -1,9 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
-import 'answerFr.dart';
-import 'answerEn.dart';
-import 'answerJp.dart';
+import 'answer.dart';
 import 'question.dart';
 import 'home.dart';
 import 'account.dart';
@@ -11,9 +9,10 @@ import 'settings.dart';
 import 'avatar.dart';
 import 'journal.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MyApp()); //on lance l'application
 
-final date = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
+final date =
+    formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]); //date actuelle
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -24,34 +23,34 @@ class MyApp extends StatelessWidget {
         //routes pour naviguer entre les pages
         '/': (context) => HomeFr(),
         '/questionFr': (context) => QuestionFr(),
-        '/answerP_Fr': (context) => AnswerPFr(),
-        '/answerN_Fr': (context) => AnswerNFr(),
-        '/noAnswer_Fr': (context) => NoAnswerFr(),
+        '/answerFr': (context) => AnswerFr(),
         '/accountFr': (context) => AccountFr(),
         '/settingsFr': (context) => SettingsFr(),
         '/choixFr': (context) => ChoixFr(),
         '/avatarFr': (context) => AvatarFr(),
         '/journalFr': (context) => JournalFr(),
+        '/textFr': (context) => TextFr(),
+        '/ResumeFr': (context) => ResumeFr(),
         '/homeEn': (context) => HomeEn(),
         '/questionEn': (context) => QuestionEn(),
-        '/answerP_En': (context) => AnswerPEn(),
-        '/answerN_En': (context) => AnswerNEn(),
-        '/noAnswer_En': (context) => NoAnswerEn(),
+        '/answerEn': (context) => AnswerEn(),
         '/accountEn': (context) => AccountEn(),
         '/settingsEn': (context) => SettingsEn(),
         '/choixEn': (context) => ChoixEn(),
         '/avatarEn': (context) => AvatarEn(),
         '/journalEn': (context) => JournalEn(),
+        '/textEn': (context) => TextEn(),
+        '/ResumeEn': (context) => ResumeEn(),
         '/homeJp': (context) => HomeJp(),
         '/questionJp': (context) => QuestionJp(),
-        '/answerP_Jp': (context) => AnswerPJp(),
-        '/answerN_Jp': (context) => AnswerNJp(),
-        '/noAnswer_Jp': (context) => NoAnswerJp(),
+        '/answerJp': (context) => AnswerJp(),
         '/accountJp': (context) => AccountJp(),
         '/settingsJp': (context) => SettingsJp(),
         '/choixJp': (context) => ChoixJp(),
         '/avatarJp': (context) => AvatarJp(),
         '/journalJp': (context) => JournalJp(),
+        '/textJp': (context) => TextJp(),
+        '/ResumeJp': (context) => ResumeJp(),
       },
     );
   }
