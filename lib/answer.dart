@@ -15,6 +15,7 @@ class AnswerFr extends StatefulWidget {
 
 class AnswerFrState extends State {
   //classe lorsque l'utilisateur a répondu à la question en français
+  static bool avaible = true;
   static var contentFr;
   final controller =
       TextEditingController(); //le controlleur gère le texte entré par l'utilisateur
@@ -64,6 +65,25 @@ class AnswerFrState extends State {
                         str; //une fois validé, on conserve le message dans la variable content
                   });
                 }),
+            SizedBox(
+              height: 80,
+            ),
+            TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
+              onPressed: () {
+                avaible = false;
+                Navigator.pushNamed(
+                  context,
+                  '/',
+                ); //la route vers laquelle on est redirigé lorsqu'on clique sur le bouton
+              },
+              child: const Text("Retour à la page d'accueil",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  )),
+            ),
             Expanded(
               child: Align(
                 //position de l'élément "enfant" de Align donc ici Container
@@ -93,7 +113,9 @@ class AnswerEn extends StatefulWidget {
 }
 
 class AnswerEnState extends State {
-  static var contentEn; //classe lorsque l'utilisateur a répondu à la question en anglais
+  //classe lorsque l'utilisateur a répondu à la question en anglais
+  static var contentEn;
+  static bool avaible = true;
   var im = AvatarEnState.image;
   final controller = TextEditingController();
   int i = (DateTime.now().weekday) - 1;
@@ -128,6 +150,25 @@ class AnswerEnState extends State {
                     contentEn = str;
                   });
                 }),
+            SizedBox(
+              height: 80,
+            ),
+            TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
+              onPressed: () {
+                avaible = false;
+                Navigator.pushNamed(
+                  context,
+                  '/homeEn',
+                ); //la route vers laquelle on est redirigé lorsqu'on clique sur le bouton
+              },
+              child: const Text("Back to the homepage",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  )),
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomLeft,
@@ -156,6 +197,7 @@ class AnswerJp extends StatefulWidget {
 class AnswerJpState extends State {
   //classe lorsque l'utilisateur a répondu à la question en japonais
   static var contentJp;
+  static bool avaible = true;
   var im = AvatarJpState.image;
   final controller = TextEditingController();
   int i = (DateTime.now().weekday) - 1;
@@ -189,6 +231,25 @@ class AnswerJpState extends State {
                     contentJp = str;
                   });
                 }),
+            SizedBox(
+              height: 80,
+            ),
+            TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
+              onPressed: () {
+                avaible = false;
+                Navigator.pushNamed(
+                  context,
+                  '/homeJp',
+                ); //la route vers laquelle on est redirigé lorsqu'on clique sur le bouton
+              },
+              child: const Text("ホームページに戻る",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  )),
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomLeft,

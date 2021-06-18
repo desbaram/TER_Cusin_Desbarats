@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'package:compagnon_virtuel/account.dart';
+import 'package:compagnon_virtuel/answer.dart';
 import 'package:compagnon_virtuel/settings.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
@@ -13,6 +14,7 @@ class HomeFr extends StatefulWidget {
 
 class HomeFrState extends State {
   //classe de la page d'accueil en français
+  bool available = AnswerFrState.avaible;
   var h = SettingsFrState
       .h; //heure de la question définie dans les paramètres, fi hier settings.dart
   var im = AvatarFrState
@@ -44,8 +46,8 @@ class HomeFrState extends State {
             SizedBox(
               height: 80,
             ),
-            if (heure >
-                h) //heure à laquelle apparait la question, 12h si inchangé dans les paramètres
+            if (heure > h &&
+                available) //heure à laquelle apparait la question, 12h si inchangé dans les paramètres
               ElevatedButton(
                 //bouton qui permet d'accéder à la question quotidienne
                 child: Text("Répondre à la question du jour",
@@ -72,6 +74,18 @@ class HomeFrState extends State {
                   fontSize: taille,
                 ),
               ), //si la question n'est pas encore disponible, on affiche l'heure à laquelle elle le sera
+            SizedBox(
+              height: 30,
+            ),
+            if (!available)
+              Text(
+                "Vous avez déjà répondu à la question",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: taille,
+                ),
+              ), //si l'utilisateur a déja répondu à la question, on affiche ce message'
             SizedBox(
               height: 30,
             ),
@@ -123,6 +137,7 @@ class HomeEn extends StatefulWidget {
 class HomeEnState extends State {
   //classe de la page d'accueil en anglais
   var h = SettingsFrState.h;
+  bool available = AnswerFrState.avaible;
   var im = AvatarEnState.image;
   int heure = DateTime.now().hour;
   double taille = TextEnState.t;
@@ -148,7 +163,7 @@ class HomeEnState extends State {
             SizedBox(
               height: 80,
             ),
-            if (heure > h)
+            if (heure > h && available)
               ElevatedButton(
                 child: Text("Answer the question of the day",
                     style: TextStyle(
@@ -168,6 +183,18 @@ class HomeEnState extends State {
             if (heure < h)
               Text(
                 "The question will be avaible at $h hour",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: taille,
+                ),
+              ),
+            SizedBox(
+              height: 30,
+            ),
+            if (!available)
+              Text(
+                "You have already answered the question",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
@@ -222,6 +249,7 @@ class HomeJp extends StatefulWidget {
 class HomeJpState extends State {
   //classe de la page d'accueil en japonais
   var h = SettingsFrState.h;
+  bool available = AnswerFrState.avaible;
   var im = AvatarJpState.image;
   int heure = DateTime.now().hour;
   double taille = TextJpState.t;
@@ -247,7 +275,7 @@ class HomeJpState extends State {
             SizedBox(
               height: 80,
             ),
-            if (heure > h)
+            if (heure > h && available)
               ElevatedButton(
                 child: Text("その日の質問に答える",
                     style: TextStyle(
@@ -267,6 +295,16 @@ class HomeJpState extends State {
             if (heure < h)
               Text(
                 "質問は後で利用可能になります",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: taille,
+                ),
+              ),
+            SizedBox(height: 30),
+            if (!available)
+              Text(
+                "あなたはすでに質問に答えています",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,

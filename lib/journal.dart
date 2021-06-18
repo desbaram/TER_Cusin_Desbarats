@@ -1,8 +1,7 @@
 import 'package:compagnon_virtuel/answer.dart';
 import 'package:compagnon_virtuel/question.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:syncfusion_localizations/syncfusion_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:date_format/date_format.dart';
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'main.dart';
@@ -18,56 +17,43 @@ class JournalFrState extends State {
   //cette classe gère le calendrier en français
   static var date;
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        SfGlobalLocalizations.delegate
-      ],
-      supportedLocales: [
-        const Locale('fr'),
-        const Locale('en'),
-        const Locale('ja'),
-      ],
-      locale: const Locale('fr'), //on définit la langue du calendrier
-      home: ScaffoldFr(
-        title: "Journal",
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.fill),
+    return ScaffoldFr(
+      title: "Journal",
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.fill),
+        ),
+        child: SfCalendar(
+          //ce widget est un calendrier
+          view:
+              CalendarView.month, //on definit son format, ici une vue par mois
+          firstDayOfWeek: 1,
+          cellBorderColor: Colors.black,
+          showNavigationArrow: true,
+          todayHighlightColor: Colors.blue,
+          todayTextStyle: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
           ),
-          child: SfCalendar(
-            //ce widget est un calendrier
-            view: CalendarView
-                .month, //on definit son format, ici une vue par mois
-            firstDayOfWeek: 1,
-            cellBorderColor: Colors.black,
-            showNavigationArrow: true,
-            todayHighlightColor: Colors.blue,
-            todayTextStyle: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-            ),
-            monthViewSettings: MonthViewSettings(
-              showTrailingAndLeadingDates: false,
-              monthCellStyle: MonthCellStyle(
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
+          monthViewSettings: MonthViewSettings(
+            showTrailingAndLeadingDates: false,
+            monthCellStyle: MonthCellStyle(
+              textStyle: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
               ),
             ),
-            onTap: (CalendarTapDetails details) {
-              date = details.date;
-              if (date.isBefore(DateTime.now())) {
-                Navigator.pushNamed(
-                  context,
-                  '/resumeFr',
-                ); //la route vers laquelle on est redirigé lorsqu'on clique sur une date
-              }
-            },
           ),
+          onTap: (CalendarTapDetails details) {
+            date = details.date;
+            if (date.isBefore(DateTime.now())) {
+              Navigator.pushNamed(
+                context,
+                '/resumeFr',
+              ); //la route vers laquelle on est redirigé lorsqu'on clique sur une date
+            }
+          },
         ),
       ),
     );
@@ -82,56 +68,43 @@ class JournalEnState extends State {
   //cette classe gère le calendrier en anglais
   static var date;
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        SfGlobalLocalizations.delegate
-      ],
-      supportedLocales: [
-        const Locale('fr'),
-        const Locale('en'),
-        const Locale('ja'),
-      ],
-      locale: const Locale('en'),
-      home: ScaffoldEn(
-        title: "Diary",
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.fill),
+    return ScaffoldEn(
+      title: "Diary",
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.fill),
+        ),
+        child: SfCalendar(
+          view: CalendarView.month,
+          firstDayOfWeek: 1,
+          cellBorderColor: Colors.black,
+          showNavigationArrow: true,
+          todayHighlightColor: Colors.blue,
+          todayTextStyle: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
           ),
-          child: SfCalendar(
-            view: CalendarView.month,
-            firstDayOfWeek: 1,
-            cellBorderColor: Colors.black,
-            showNavigationArrow: true,
-            todayHighlightColor: Colors.blue,
-            todayTextStyle: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-            ),
-            monthViewSettings: MonthViewSettings(
-              showAgenda: true,
-              agendaViewHeight: 100,
-              showTrailingAndLeadingDates: false,
-              monthCellStyle: MonthCellStyle(
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
+          monthViewSettings: MonthViewSettings(
+            showAgenda: true,
+            agendaViewHeight: 100,
+            showTrailingAndLeadingDates: false,
+            monthCellStyle: MonthCellStyle(
+              textStyle: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
               ),
             ),
-            onTap: (CalendarTapDetails details) {
-              date = details.date;
-              if (date.isBefore(DateTime.now())) {
-                Navigator.pushNamed(
-                  context,
-                  '/resumeEn',
-                );
-              }
-            },
           ),
+          onTap: (CalendarTapDetails details) {
+            date = details.date;
+            if (date.isBefore(DateTime.now())) {
+              Navigator.pushNamed(
+                context,
+                '/resumeEn',
+              );
+            }
+          },
         ),
       ),
     );
@@ -146,56 +119,43 @@ class JournalJpState extends State {
   //cette classe gère le calendrier en japonais
   static var date;
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        SfGlobalLocalizations.delegate
-      ],
-      supportedLocales: [
-        const Locale('fr'),
-        const Locale('en'),
-        const Locale('ja'),
-      ],
-      locale: const Locale('ja'),
-      home: ScaffoldJp(
-        title: "議題",
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.fill),
+    return ScaffoldJp(
+      title: "議題",
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/fond/pastel.jpg"), fit: BoxFit.fill),
+        ),
+        child: SfCalendar(
+          view: CalendarView.month,
+          firstDayOfWeek: 1,
+          cellBorderColor: Colors.black,
+          showNavigationArrow: true,
+          todayHighlightColor: Colors.blue,
+          todayTextStyle: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
           ),
-          child: SfCalendar(
-            view: CalendarView.month,
-            firstDayOfWeek: 1,
-            cellBorderColor: Colors.black,
-            showNavigationArrow: true,
-            todayHighlightColor: Colors.blue,
-            todayTextStyle: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-            ),
-            monthViewSettings: MonthViewSettings(
-              showAgenda: true,
-              agendaViewHeight: 100,
-              showTrailingAndLeadingDates: false,
-              monthCellStyle: MonthCellStyle(
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
+          monthViewSettings: MonthViewSettings(
+            showAgenda: true,
+            agendaViewHeight: 100,
+            showTrailingAndLeadingDates: false,
+            monthCellStyle: MonthCellStyle(
+              textStyle: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
               ),
             ),
-            onTap: (CalendarTapDetails details) {
-              date = details.date;
-              if (date.isBefore(DateTime.now())) {
-                Navigator.pushNamed(
-                  context,
-                  '/resumeJp',
-                );
-              }
-            },
           ),
+          onTap: (CalendarTapDetails details) {
+            date = details.date;
+            if (date.isBefore(DateTime.now())) {
+              Navigator.pushNamed(
+                context,
+                '/resumeJp',
+              );
+            }
+          },
         ),
       ),
     );
@@ -209,7 +169,7 @@ class ResumeFr extends StatefulWidget {
 class ResumeFrState extends State {
   //classe de la page d'accueil en français
   var message = AnswerFrState.contentFr;
-  var d = JournalFrState.date;
+  String d = formatDate(JournalFrState.date, [dd, '-', mm, '-', yyyy]);
   var qu = QuestionFrState.question;
   var rep = QuestionFrState.reponse;
   int i = (DateTime.now().weekday) - 1;
@@ -228,7 +188,7 @@ class ResumeFrState extends State {
           margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 40.0),
           //marge pour que les éléments ne soient pas collés au bord de page
           child: Column(children: [
-            Text("La question : " + qu[i],
+            Text("La question : " + '"' + qu[i] + '"',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
@@ -237,7 +197,7 @@ class ResumeFrState extends State {
             SizedBox(
               height: 80,
             ),
-            Text("Votre réponse " + rep,
+            Text("Votre réponse : " + '"' + rep + '"',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,
@@ -246,7 +206,7 @@ class ResumeFrState extends State {
             SizedBox(
               height: 80,
             ),
-            Text(message,
+            Text("Votre message : " + '"' + message + '"',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blue,

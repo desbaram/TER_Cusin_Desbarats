@@ -614,12 +614,15 @@ class ChoixFrState extends State {
                   backgroundColor: Colors.white,
                   shadowColor: Colors.grey,
                   elevation: 5,
-                  side: BorderSide(color: Colors.grey, width: 2),
+                  side: BorderSide(color: Colors.grey),
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   minimumSize: Size(180, 55),
                 ), //apparence du bouton : couleur, ombre, bordures, taille
+
+                // minimumSize: Size(180, 55),
               ),
+
               SizedBox(height: 20),
               OutlinedButton(
                 //deuxième bouton
@@ -649,12 +652,15 @@ class ChoixFrState extends State {
                   backgroundColor: Colors.white,
                   shadowColor: Colors.grey,
                   elevation: 5,
-                  side: BorderSide(color: Colors.grey, width: 2),
+                  side: BorderSide(color: Colors.grey),
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   minimumSize: Size(180, 55),
                 ), //apparence du bouton : couleur, ombre, bordures, taille
+
+                // minimumSize: Size(180, 55),
               ),
+
               SizedBox(height: 20),
               OutlinedButton(
                 //troisième bouton
@@ -684,11 +690,12 @@ class ChoixFrState extends State {
                   backgroundColor: Colors.white,
                   shadowColor: Colors.grey,
                   elevation: 5,
-                  side: BorderSide(color: Colors.grey, width: 2),
+                  side: BorderSide(color: Colors.grey),
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   minimumSize: Size(180, 55),
-                ), //apparence du bouton : couleur, ombre, bordures, taille
+                ),
+                // minimumSize: Size(180, 55),
               ),
             ],
           ),

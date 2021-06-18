@@ -8,6 +8,7 @@ import 'account.dart';
 import 'settings.dart';
 import 'avatar.dart';
 import 'journal.dart';
+import 'game.dart';
 
 void main() => runApp(MyApp()); //on lance l'application
 
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         '/avatarFr': (context) => AvatarFr(),
         '/journalFr': (context) => JournalFr(),
         '/textFr': (context) => TextFr(),
-        '/ResumeFr': (context) => ResumeFr(),
+        '/resumeFr': (context) => ResumeFr(),
+        '/gameFr': (context) => GameFr(),
         '/homeEn': (context) => HomeEn(),
         '/questionEn': (context) => QuestionEn(),
         '/answerEn': (context) => AnswerEn(),
@@ -40,7 +42,8 @@ class MyApp extends StatelessWidget {
         '/avatarEn': (context) => AvatarEn(),
         '/journalEn': (context) => JournalEn(),
         '/textEn': (context) => TextEn(),
-        '/ResumeEn': (context) => ResumeEn(),
+        '/resumeEn': (context) => ResumeEn(),
+        '/gameEn': (context) => GameEn(),
         '/homeJp': (context) => HomeJp(),
         '/questionJp': (context) => QuestionJp(),
         '/answerJp': (context) => AnswerJp(),
@@ -50,7 +53,8 @@ class MyApp extends StatelessWidget {
         '/avatarJp': (context) => AvatarJp(),
         '/journalJp': (context) => JournalJp(),
         '/textJp': (context) => TextJp(),
-        '/ResumeJp': (context) => ResumeJp(),
+        '/resumeJp': (context) => ResumeJp(),
+        '/gameJp': (context) => GameJp(),
       },
     );
   }
@@ -59,6 +63,8 @@ class MyApp extends StatelessWidget {
 class DrawerFr extends StatelessWidget {
   //classe pour le menu français
   Widget build(BuildContext context) {
+    // key: scaffoldKey,
+
     return Drawer(
       child: ListView(
         children: <Widget>[
@@ -108,6 +114,17 @@ class DrawerFr extends StatelessWidget {
               ); //quand on appuie dessus, on est redirigé vers la route suivante
             },
           ),
+          ListTile(
+            //quatrième option du menu
+            leading: Icon(Icons.videogame_asset), //son icône
+            title: Text('Jeu'), //son nom
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/gameFr',
+              ); //quand on appuie dessus, on est redirigé vers la route suivante
+            },
+          ),
         ],
       ),
     );
@@ -128,6 +145,7 @@ class ScaffoldFr extends StatelessWidget {
           title,
         ),
       ), //barre d'outils du haut avec le titre
+      resizeToAvoidBottomInset: false,
       body: body,
       drawer: DrawerFr(), //le menu qui appelle la classe défini ci-dessus
       bottomNavigationBar: BottomAppBar(
@@ -225,6 +243,16 @@ class DrawerEn extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+            leading: Icon(Icons.videogame_asset),
+            title: Text('Game'),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/gameEn',
+              );
+            },
+          ),
         ],
       ),
     );
@@ -245,6 +273,7 @@ class ScaffoldEn extends StatelessWidget {
           title,
         ),
       ),
+      resizeToAvoidBottomInset: false,
       body: body,
       drawer: DrawerEn(),
       bottomNavigationBar: BottomAppBar(
@@ -339,6 +368,16 @@ class DrawerJp extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+            leading: Icon(Icons.videogame_asset),
+            title: Text('ゲーム'),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/gameJp',
+              );
+            },
+          ),
         ],
       ),
     );
@@ -359,6 +398,7 @@ class ScaffoldJp extends StatelessWidget {
           title,
         ),
       ),
+      resizeToAvoidBottomInset: false,
       body: body,
       drawer: DrawerJp(),
       bottomNavigationBar: BottomAppBar(
